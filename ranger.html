@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>SR Doc</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script type="text/javascript">
+function cookie_get(nm){
+    //cookieなんてないのでダミーです
+    var r=[];
+    if(nm=='user'){
+	    r=['9999999999','name','ABCDEFGH','IJKLMNOP','abcdefghijklmnopqrstuvwxyz','0','nickname'];
+    }
+	return(r);
+}
+function cvs_mv2(gw,gh,ss,as,ab,ms){
+    //これはwebサイトの画面配置をなんとかのやつです
+    //ほぼ独自です
+    let s=2;
+    if(gw*s>window.innerWidth){
+        document.getElementById('cv').style.width=window.innerWidth+'px';
+        document.getElementById('cv').style.height=gh*window.innerWidth/gw+'px';
+    }else{
+        document.getElementById('cv').style.width=gw*s+'px';
+        document.getElementById('cv').style.height=gh*s+'px';
+    }
+    document.getElementById('cv').style.position='absolute';
+    document.getElementById('cv').style.left='0px';
+    document.getElementById('cv').style.right='0px';
+    document.getElementById('cv').style.margin='auto';
+	window.onresize=function(){cvs_mv2(gw,gh,ss,as,ab,ms);}
+}
+function hu_tag(id, lg) {
+    var w = '';
+    var ck = cookie_get('user');
+    var v = [['復活の呪文', 'Save game'],
+             ['ゲット', 'Get'],
+             ['セット', 'Set'],
+             ['<A HREF="/entry/" TITLE="ユーザー登録">ユーザー登録</A>が必要です。', '<A HREF="/en/entry/" TITLE="User registration">User registration</A> is required.']];
+    if (ck[3] != '') {
+        w += '<TABLE ID="htbl"><TR><TH>' + v[0][lg] + '<\/TH><TD><TEXTAREA ID="bun" ONCLICK="this.select();"><\/TEXTAREA><\/TD><TH>';
+        w += '<INPUT TYPE="SUBMIT" VALUE="' + v[1][lg] + '" ONCLICK="save(\'' + id + '\')" ONMOUSEDOWN="';
+        w += 'document.getElementById(\'bun\').value=\'\';document.getElementById(\'pass\').innerHTML=\'　\';';
+        w += '">';
+        w += '<INPUT TYPE="SUBMIT" VALUE="' + v[2][lg] + '" ONCLICK="load(\'' + id + '\')" ONMOUSEDOWN="';
+        w += 'document.getElementById(\'pass\').innerHTML=\'　\';';
+        w += '">';
+        w += '<\/TH><\/TR><\/TABLE><DIV id="pass" STYLE="HEIGHT:14px;"><\/DIV><BR>';
+    } else {
+        w += '<TABLE CLASS="ctbl" STYLE="MARGIN:0 auto;"><TR><TH><B>' + v[0][lg] + '<\/B><\/TH><TD>' + v[3][lg] + '<\/TD><\/TR><\/TABLE>';
+        w += '<BR>';
+    }
+    document.getElementById('hu_tag').innerHTML = w;
+}
+function load(id) {
+    document.getElementById('bun').value = document.getElementById('bun').value.replace(/\x0D\x0A|\x0D|\x0A/g, '');
+    var s = document.getElementById('bun').value;
+    var ret = -1;
+    var h = 'Error';
+    if (s != '') {
+        ret = GameLoad(s);
+    }
+    if (ret != -1) {
+        h = 'Set OK';
+    }
+    document.getElementById('pass').innerHTML = h;
+}
+function save(id) {
+    var s = '';
+    var h = 'Error';
+    s = GameSave('0');
+    if (s != '') {
+        document.getElementById('bun').value = s;
+        h = 'Get OK';
+    }
+    document.getElementById('pass').innerHTML = h;
+}
+</script>
+<div id="hu_tag"></div>
+<script>
+    hu_tag('ranger', 0);
+</script>
+<canvas id="cv" style="DISPLAY:inline-block;MARGIN:0 -50% 0;WIDTH:512px;HEIGHT:384px;"></canvas>
+<script async src="./ranger.js" onload="var src_ck=cookie_get('user'),src_sv=cookie_get('save');Init(src_ck[2],src_ck[3],0,src_sv[0]);cvs_mv2(512,384,900,1,0,1);"></script>
+</body>
+</html>
