@@ -2003,18 +2003,16 @@ function Rd() {
             if (0 != $c[b]) {
                 e = 8 * cd[b][0];
                 g = 8 * cd[b][1];
-                if (b && 20 != b && 47 != b && 77 != b) {
-                    if (33 == b) {
-                        c = 0;
-                    } else if (71 == b) {
-                        c = 0;
-                    } else if ($c[b] & ad) {
-                        c = 10027008;
-                    } else {
-                        c = 13421568;
-                    }
-                } else {
+                if (!(b && 20 != b && 47 != b && 77 != b)) {
                     c = 16777215;
+                } else if (33 == b) {
+                    c = 0;
+                } else if (71 == b) {
+                    c = 0;
+                } else if ($c[b] & ad) {
+                    c = 10027008;
+                } else {
+                    c = 13421568;
                 }
                 if (0 == cd[b][2]) {
                     ce(a.a + e, g, 6, 6, c);
@@ -2042,16 +2040,14 @@ function Rd() {
                     c = 24;
                 }
                 if (Zd(a.a + e, g, c, c)) {
-                    if (!$d || b && 20 != b && 47 != b && 70 != b && 77 != b) {
-                        if ($d && b) {
-                            k = b;
-                            ib = 0;
-                            f = 10;
-                        }
-                    } else {
+                    if (!(!$d || b && 20 != b && 47 != b && 70 != b && 77 != b)) {
                         k = b;
                         ib = 1;
                         f = 50;
+                    } else if ($d && b) {
+                        k = b;
+                        ib = 0;
+                        f = 10;
                     }
                     e = J(he, 1 + 4 * ne[b].length, 510 - 4 * ne[b].length);
                     g = J(ie - 24, 8, 256);
@@ -2168,14 +2164,12 @@ function Sd() {
         oe(0);
         q = 30;
         a = "";
-        if (ib) {
-            if (ib + 1 == ld[k].length) {
-                q = 110;
-                a = "BOSS AREA";
-            }
-        } else {
+        if (!ib) {
             q = 110;
             a = ne[k];
+        } else if (ib + 1 == ld[k].length) {
+            q = 110;
+            a = "BOSS AREA";
         }
         ze(255 - y(255 * Ae(hb, 30) / 30));
         if (110 == q) {
@@ -2388,18 +2382,16 @@ function Td() {
         ye(0);
         oe(0);
         e = "";
-        if (k) {
-            if (20 == k) {
-                e = "VILLAGE";
-            } else if (47 == k) {
-                e = "RESORT";
-            } else if (70 == k) {
-                e = "Forget Tree";
-            } else if (77 == k) {
-                e = "ISLAND";
-            }
-        } else {
+        if (!k) {
             e = "TOWN";
+        } else if (20 == k) {
+            e = "VILLAGE";
+        } else if (47 == k) {
+            e = "RESORT";
+        } else if (70 == k) {
+            e = "Forget Tree";
+        } else if (77 == k) {
+            e = "ISLAND";
         }
         ze(255 - y(255 * Ae(hb, 30) / 30));
         c = 255;
@@ -2488,16 +2480,14 @@ function Td() {
                 Uc();
             }
         } else if (Zd(40, 152, 72, 24)) {
-            if (k) {
-                if (20 == k) {
-                    Vd(F, 40, 152, " COMPO SHOP", 16711680, 13800762);
-                } else if (47 == k) {
-                    Vd(F, 40, 152, " JUNK SHOP", 16711680, 13800762);
-                } else if (77 == k) {
-                    Vd(F, 40, 152, " COMPO SHOP", 16711680, 13800762);
-                }
-            } else {
+            if (!k) {
                 Vd(F, 40, 152, "SHOP", 16711680, 13800762);
+            } else if (20 == k) {
+                Vd(F, 40, 152, " COMPO SHOP", 16711680, 13800762);
+            } else if (47 == k) {
+                Vd(F, 40, 152, " JUNK SHOP", 16711680, 13800762);
+            } else if (77 == k) {
+                Vd(F, 40, 152, " COMPO SHOP", 16711680, 13800762);
             }
             if ($d) {
                 f = 53;
@@ -2513,16 +2503,14 @@ function Td() {
     } else if (53 == f) {
         ye(0);
         e = jb = 0;
-        if (k) {
-            if (20 == k) {
-                e = 1;
-            } else if (47 == k) {
-                e = 2;
-            } else if (77 == k) {
-                e = 3;
-            }
-        } else {
+        if (!k) {
             e = 0;
+        } else if (20 == k) {
+            e = 1;
+        } else if (47 == k) {
+            e = 2;
+        } else if (77 == k) {
+            e = 3;
         }
         var h = [[3, 4, 5, 6, 12, 14, 15, 18],
                  [7, 8, 9, 10, 11, 16, 17],
@@ -3037,13 +3025,7 @@ function Ud() {
                 b = Zd(256, 140, 16, 12);
                 Vd(F, 256, 140, "OK", b ? 16711680 : 16777215, 0);
                 if (b && ff) {
-                    if (2 > ef.length) {
-                        if (Ia) {
-                            df(sa, "\u30b3\u30e1\u30f3\u30c8\u3092\uff12\u6587\u5b57\u4ee5\u4e0a\u8a18\u5165\u3057\u3066\u4e0b\u3055\u3044");
-                        } else {
-                            df(sa, "The comment must be longer than 2 characters.");
-                        }
-                    } else {
+                    if (!(2 > ef.length)) {
                         b = ef;
                         c = 0;
                         a = b.length;
@@ -3055,47 +3037,47 @@ function Ud() {
                                 c = c + 2;
                             }
                         }
-                        if (20 < c) {
-                            if (Ia) {
-                                df(sa, "\u30b3\u30e1\u30f3\u30c8\u3092\uff11\uff10\u6587\u5b57\u4ee5\u4e0b\u3067\u8a18\u5165\u3057\u3066\u4e0b\u3055\u3044");
-                            } else {
-                                df(sa, "The comment must be shorter than 10 characters.");
-                            }
-                        } else {
+                        if (!(20 < c)) {
                             f++;
+                        } else if (Ia) {
+                            df(sa, "\u30b3\u30e1\u30f3\u30c8\u3092\uff11\uff10\u6587\u5b57\u4ee5\u4e0b\u3067\u8a18\u5165\u3057\u3066\u4e0b\u3055\u3044");
+                        } else {
+                            df(sa, "The comment must be shorter than 10 characters.");
                         }
+                    } else if (Ia) {
+                        df(sa, "\u30b3\u30e1\u30f3\u30c8\u3092\uff12\u6587\u5b57\u4ee5\u4e0a\u8a18\u5165\u3057\u3066\u4e0b\u3055\u3044");
+                    } else {
+                        df(sa, "The comment must be longer than 2 characters.");
                     }
                 }
             }
         } else if (73 == f) {
             b = encodeURIComponent(ef);
-            if (b.length) {
-                if (0 == r[4] || 0 == r[5] || 0 == r[6] || 0 == r[7]) {
-                    if (Ia) {
-                        df(sa, "\u6b66\u5668\u3092\u88c5\u5099\u3057\u3066\u4e0b\u3055\u3044");
-                    } else {
-                        df(sa, "Equip a weapon.");
-                    }
-                    f = 72;
-                } else {
-                    md();
-                    Gc = Tc(1);
-                    c = hf(47, 115, 99, 111, 114, 101, 47, 114, 97, 110, 103, 101, 114, 95, 101, 110, 116, 114, 121, 46, 112, 104, 112, 63, 97, 61);
-                    c += da;
-                    c += jf + (Ia ? "0" : "1");
-                    c += kf + b;
-                    c += lf + Gc;
-                    td(c);
-                    mf(c);
-                    f++;
-                }
-            } else {
+            if (!b.length) {
                 if (Ia) {
                     df(sa, "\u30a8\u30e9\u30fc");
                 } else {
                     df(sa, "Error");
                 }
                 f = 72;
+            } else if (0 == r[4] || 0 == r[5] || 0 == r[6] || 0 == r[7]) {
+                if (Ia) {
+                    df(sa, "\u6b66\u5668\u3092\u88c5\u5099\u3057\u3066\u4e0b\u3055\u3044");
+                } else {
+                    df(sa, "Equip a weapon.");
+                }
+                f = 72;
+            } else {
+                md();
+                Gc = Tc(1);
+                c = hf(47, 115, 99, 111, 114, 101, 47, 114, 97, 110, 103, 101, 114, 95, 101, 110, 116, 114, 121, 46, 112, 104, 112, 63, 97, 61);
+                c += da;
+                c += jf + (Ia ? "0" : "1");
+                c += kf + b;
+                c += lf + Gc;
+                td(c);
+                mf(c);
+                f++;
             }
         } else if (74 == f && nf) {
             if ("ok" == of[0]) {
@@ -3299,16 +3281,14 @@ function ye(a) {
         I(Ya, 400, 183, 117, 84, 0, 0, 78, 56, 16777215);
         I(Ya, 40, 170, 156, 112, 0, 0, 78, 56, 16777215);
         Vd(F, 400, 168, "INN", 16777215, 13800762);
-        if (k) {
-            if (20 == k) {
-                Vd(F, 40, 152, " COMPO SHOP", 16777215, 13800762);
-            } else if (47 == k) {
-                Vd(F, 40, 152, " JUNK SHOP", 16777215, 13800762);
-            } else if (77 == k) {
-                Vd(F, 40, 152, " COMPO SHOP", 16777215, 13800762);
-            }
-        } else {
+        if (!k) {
             Vd(F, 40, 152, "SHOP", 16777215, 13800762);
+        } else if (20 == k) {
+            Vd(F, 40, 152, " COMPO SHOP", 16777215, 13800762);
+        } else if (47 == k) {
+            Vd(F, 40, 152, " JUNK SHOP", 16777215, 13800762);
+        } else if (77 == k) {
+            Vd(F, 40, 152, " COMPO SHOP", 16777215, 13800762);
         }
         Vd(F, 40, 184, "BOOK", 16777215, 13800762);
     }
@@ -3494,23 +3474,21 @@ function ye(a) {
             for (b = 114687; 0 <= b; b--) {
                 if (1 == Ja.l[b]) {
                     g = H.a[b >> 12][(b & 511) >> 3];
-                    if (-1 == g || 0 == g && 3 > (b & 7) && 3 > (b >> 9 & 7) || 2 == g && 4 < (b & 7) && 3 > (b >> 9 & 7)) {
-                        if (!(50 > C(100))) {
-                            if (57 == d.c || 58 == d.c || 61 == d.c) {
-                                c = b + 512 + y(C(4)) - 2;
-                            } else {
-                                c = b + 512 + y(C(3)) - 1;
-                            }
-                            if (1 != Ja.l[c]) {
-                                g = H.a[c >> 12][(c & 511) >> 3];
-                                if (-1 == g || 0 == g && 3 > (c & 7) && 3 > (c >> 9 & 7) || 2 == g && 4 < (c & 7) && 3 > (c >> 9 & 7)) {
-                                    Ja.l[c] = Ja.l[b];
-                                    Ja.l[b] = 0;
-                                }
+                    if (!(-1 == g || 0 == g && 3 > (b & 7) && 3 > (b >> 9 & 7) || 2 == g && 4 < (b & 7) && 3 > (b >> 9 & 7))) {
+                        Ja.l[b] = 0;
+                    } else if (!(50 > C(100))) {
+                        if (57 == d.c || 58 == d.c || 61 == d.c) {
+                            c = b + 512 + y(C(4)) - 2;
+                        } else {
+                            c = b + 512 + y(C(3)) - 1;
+                        }
+                        if (1 != Ja.l[c]) {
+                            g = H.a[c >> 12][(c & 511) >> 3];
+                            if (-1 == g || 0 == g && 3 > (c & 7) && 3 > (c >> 9 & 7) || 2 == g && 4 < (c & 7) && 3 > (c >> 9 & 7)) {
+                                Ja.l[c] = Ja.l[b];
+                                Ja.l[b] = 0;
                             }
                         }
-                    } else {
-                        Ja.l[b] = 0;
                     }
                 }
             }
@@ -4185,11 +4163,7 @@ function nd(a, b, c, d) {
         if (1 == b || 2 == b || 3 == b || 6 == b || 7 == b || 8 == b) {
             return !0;
         }
-    } else if (7 == a) {
-        if (1 == b || 2 == b || 3 == b || 6 == b || 7 == b || 8 == b) {
-            return !0;
-        }
-    } else {
+    } else if (!(7 == a)) {
         if (8 == a || 9 == a || 10 == a) {
             return !0;
         }
@@ -4233,11 +4207,7 @@ function nd(a, b, c, d) {
             if (4 == c) {
                 return !0;
             }
-        } else if (20 == a) {
-            if (5 == c) {
-                return !0;
-            }
-        } else {
+        } else if (!(20 == a)) {
             if (21 == a) {
                 return !0;
             }
@@ -4277,11 +4247,7 @@ function nd(a, b, c, d) {
                 if (1 == b || 2 == b || 7 == b) {
                     return !0;
                 }
-            } else if (44 == a) {
-                if (3 == b || 4 == b || 6 == b || 7 == b || 8 == b) {
-                    return !0;
-                }
-            } else {
+            } else if (!(44 == a)) {
                 if (32 == a || 33 == a || 34 == a || 35 == a || 36 == a || 38 == a || 39 == a || 40 == a || 41 == a) {
                     return !0;
                 }
@@ -4289,11 +4255,7 @@ function nd(a, b, c, d) {
                     if (1 == b || 7 == b) {
                         return !0;
                     }
-                } else if (45 == a) {
-                    if (2 == b) {
-                        return !0;
-                    }
-                } else {
+                } else if (!(45 == a)) {
                     if (46 == a) {
                         return !0;
                     }
@@ -4304,9 +4266,17 @@ function nd(a, b, c, d) {
                     } else if (48 == a || 49 == a) {
                         return !0;
                     }
+                } else if (2 == b) {
+                    return !0;
                 }
+            } else if (3 == b || 4 == b || 6 == b || 7 == b || 8 == b) {
+                return !0;
             }
+        } else if (5 == c) {
+            return !0;
         }
+    } else if (1 == b || 2 == b || 3 == b || 6 == b || 7 == b || 8 == b) {
+        return !0;
     }
     return !1;
 }
@@ -4895,18 +4865,16 @@ function Gf(a, b, c, d, e) {
         }
     }
     tb = 0;
-    if (1 != ba) {
-        if (6 == q) {
-            h = Wd.a[e][0].x;
-            e = Wd.a[e][0].y;
-        } else {
-            h = Wd.a[e][20].x;
-            e = Wd.a[e][20].y;
-        }
-    } else {
+    if (!(1 != ba)) {
         tb = 1 - (e >> 2);
         h = a.a[e][2].x;
         e = a.a[e][2].y;
+    } else if (6 == q) {
+        h = Wd.a[e][0].x;
+        e = Wd.a[e][0].y;
+    } else {
+        h = Wd.a[e][20].x;
+        e = Wd.a[e][20].y;
     }
     if (q) {
         if (1 == q) {
@@ -5219,30 +5187,28 @@ zf.prototype.G = function () {
                 this.a[this.h][this.u].x += (he - this.a[this.h][this.u].x) * (0 == p[a] ? .04 : .2);
                 this.a[this.h][this.u].y += (ie - this.a[this.h][this.u].y) * (0 == p[a] ? .04 : .2);
             }
-            if (this.f[a] && 1 != this.f[a]) {
-                if (2 == this.f[a]) {
-                    this.P(a);
-                } else if (3 == this.f[a]) {
-                    this.R(a);
-                } else if (4 == this.f[a]) {
-                    this.S(a);
-                } else if (5 == this.f[a]) {
-                    this.T(a);
-                } else if (6 == this.f[a]) {
-                    this.U(a);
-                } else if (7 == this.f[a]) {
-                    this.V(a);
-                } else if (8 == this.f[a]) {
-                    this.W(a);
-                } else if (this.f[a] == wf) {
-                    W(this.a[a][1], this.a[a][2], 3.6, .5, .5);
-                    W(this.a[a][3], this.a[a][5], 4.8, .5, .5);
-                    W(this.a[a][4], this.a[a][6], 4.8, .5, .5);
-                    W(this.a[a][7], this.a[a][9], 4.8, .5, .5);
-                    W(this.a[a][8], this.a[a][10], 4.8, .5, .5);
-                }
-            } else {
+            if (!(this.f[a] && 1 != this.f[a])) {
                 this.O(a);
+            } else if (2 == this.f[a]) {
+                this.P(a);
+            } else if (3 == this.f[a]) {
+                this.R(a);
+            } else if (4 == this.f[a]) {
+                this.S(a);
+            } else if (5 == this.f[a]) {
+                this.T(a);
+            } else if (6 == this.f[a]) {
+                this.U(a);
+            } else if (7 == this.f[a]) {
+                this.V(a);
+            } else if (8 == this.f[a]) {
+                this.W(a);
+            } else if (this.f[a] == wf) {
+                W(this.a[a][1], this.a[a][2], 3.6, .5, .5);
+                W(this.a[a][3], this.a[a][5], 4.8, .5, .5);
+                W(this.a[a][4], this.a[a][6], 4.8, .5, .5);
+                W(this.a[a][7], this.a[a][9], 4.8, .5, .5);
+                W(this.a[a][8], this.a[a][10], 4.8, .5, .5);
             }
             if (0 < (this.i[a] & 1)) {
                 this.K[a] = 0;
@@ -6118,25 +6084,23 @@ zf.prototype.B = function () {
             m = 16711680;
         }
         He = Ce = 1;
-        if (a != kb || ba || 2 != uc) {
-            if (0 < Eb) {
-                Eb--;
-                var l = Ae(Eb, 64);
-                for (b = 0; 11 > b; b++) {
-                    I(Xa, y(this.a[a][b].x), y(this.a[a][b].y), 24, 24, 0, 0, 12, 12, l << 24 | 16777062);
-                }
-                if (120 < Eb) {
-                    b = Mf(11);
-                    Gf(u, 563, u.a[a][b].x, u.a[a][b].y, 0);
-                }
-            } else {
-                for (b = 0; 11 > b; b++) {
-                    I(Xa, y(this.a[a][b].x), y(this.a[a][b].y), 12, 12, 0, 0, 12, 12, 1073741824);
-                }
+        if (!(a != kb || ba || 2 != uc)) {
+            for (b = 0; 11 > b; b++) {
+                I(Xa, y(this.a[a][b].x), y(this.a[a][b].y), 12, 12, 0, 0, 12, 12, 1358888960);
+            }
+        } else if (0 < Eb) {
+            Eb--;
+            var l = Ae(Eb, 64);
+            for (b = 0; 11 > b; b++) {
+                I(Xa, y(this.a[a][b].x), y(this.a[a][b].y), 24, 24, 0, 0, 12, 12, l << 24 | 16777062);
+            }
+            if (120 < Eb) {
+                b = Mf(11);
+                Gf(u, 563, u.a[a][b].x, u.a[a][b].y, 0);
             }
         } else {
             for (b = 0; 11 > b; b++) {
-                I(Xa, y(this.a[a][b].x), y(this.a[a][b].y), 12, 12, 0, 0, 12, 12, 1358888960);
+                I(Xa, y(this.a[a][b].x), y(this.a[a][b].y), 12, 12, 0, 0, 12, 12, 1073741824);
             }
         }
         Ce = He = 0;
@@ -7106,46 +7070,44 @@ Vf.prototype.L = function () {
                     continue;
                 }
             }
-            if (b) {
-                if (1 == b) {
-                    a = this.M(a);
-                } else if (2 == b) {
-                    a = this.N(a);
-                } else if (3 == b) {
-                    a = this.O(a);
-                } else if (4 == b) {
-                    a = this.G(a, b);
-                } else if (5 == b) {
-                    a = this.H(a, b);
-                } else if (6 == b) {
-                    a = this.P(a);
-                } else if (7 == b) {
-                    a = this.R(a);
-                } else if (8 == b) {
-                    a = this.S(a);
-                } else if (9 == b) {
-                    a = this.J(a, b);
-                } else if (10 == b) {
-                    a = this.U(a);
-                } else if (11 == b) {
-                    a = this.V(a);
-                } else if (12 == b) {
-                    a = this.G(a, b);
-                } else if (13 == b) {
-                    a = this.J(a, b);
-                } else if (14 == b) {
-                    a = this.W(a);
-                } else if (15 == b) {
-                    a = this.X(a);
-                } else if (16 == b) {
-                    a = this.Y(a);
-                } else if (17 == b) {
-                    a = this.Z(a);
-                } else if (18 == b) {
-                    a = this.H(a, b);
-                }
-            } else {
+            if (!b) {
                 a = this.T(a);
+            } else if (1 == b) {
+                a = this.M(a);
+            } else if (2 == b) {
+                a = this.N(a);
+            } else if (3 == b) {
+                a = this.O(a);
+            } else if (4 == b) {
+                a = this.G(a, b);
+            } else if (5 == b) {
+                a = this.H(a, b);
+            } else if (6 == b) {
+                a = this.P(a);
+            } else if (7 == b) {
+                a = this.R(a);
+            } else if (8 == b) {
+                a = this.S(a);
+            } else if (9 == b) {
+                a = this.J(a, b);
+            } else if (10 == b) {
+                a = this.U(a);
+            } else if (11 == b) {
+                a = this.V(a);
+            } else if (12 == b) {
+                a = this.G(a, b);
+            } else if (13 == b) {
+                a = this.J(a, b);
+            } else if (14 == b) {
+                a = this.W(a);
+            } else if (15 == b) {
+                a = this.X(a);
+            } else if (16 == b) {
+                a = this.Y(a);
+            } else if (17 == b) {
+                a = this.Z(a);
+            } else if (18 == b) {
+                a = this.H(a, b);
             }
         }
     }
@@ -7154,50 +7116,7 @@ aa.fff = Vf.prototype.T;
 Vf.prototype.T = function (a) {
     var b;
     b = D[this.f[a]][Qf];
-    if (this.b[a]) {
-        if (1 == this.b[a] || 2 == this.b[a]) {
-            V(this.a[a][0], this.c[a][0], -.05, .99);
-            V(this.a[a][1], this.c[a][1], .05, .99);
-            V(this.a[a][2], this.c[a][2], .05, .99);
-            if (0 < (this.g[a] & 3)) {
-                var c = -.1;
-                if (2 == this.b[a]) {
-                    c *= -1;
-                }
-                this.a[a][1].x += C(c);
-                this.a[a][2].x += C(c);
-                if (1 > C(100)) {
-                    this.b[a] = Ee(this.b[a] + 1, 1, 2);
-                }
-            }
-            W(this.a[a][0], this.a[a][1], 9 * b, .2, .2);
-            W(this.a[a][0], this.a[a][2], 9 * b, .2, .2);
-            W(this.a[a][1], this.a[a][2], 11 * b, .2, .2);
-            Xf(this, a, 0);
-            for (b = this.g[a] = 0; 3 > b; b++) {
-                Wf(this, a, b, .5);
-            }
-            this.a[a][20].set(this.a[a][0]);
-            if (0 >= this.j[a]) {
-                this.b[a] = 3;
-                for (b = 0; 3 > b; b++) {
-                    this.a[a][b].x += L(-.5, .5);
-                    this.a[a][b].y -= L(2, 3);
-                }
-                tf(this, a, 0);
-            }
-        } else {
-            for (b = 0; 3 > b; b++) {
-                V(this.a[a][b], this.c[a][b], .05, .99);
-            }
-            for (b = this.g[a] = 0; 3 > b; b++) {
-                Wf(this, a, b, .5);
-            }
-            if (150 < this.h[a]++) {
-                this.sub(a--);
-            }
-        }
-    } else {
+    if (!this.b[a]) {
         this.a[a][0].x += 1;
         this.a[a][0].y += 0 - 4 * (b - 1);
         this.a[a][1].x += 0;
@@ -7208,71 +7127,54 @@ Vf.prototype.T = function (a) {
             this.c[a][b].set(this.a[a][b]);
         }
         this.b[a] = 1;
+    } else if (1 == this.b[a] || 2 == this.b[a]) {
+        V(this.a[a][0], this.c[a][0], -.05, .99);
+        V(this.a[a][1], this.c[a][1], .05, .99);
+        V(this.a[a][2], this.c[a][2], .05, .99);
+        if (0 < (this.g[a] & 3)) {
+            var c = -.1;
+            if (2 == this.b[a]) {
+                c *= -1;
+            }
+            this.a[a][1].x += C(c);
+            this.a[a][2].x += C(c);
+            if (1 > C(100)) {
+                this.b[a] = Ee(this.b[a] + 1, 1, 2);
+            }
+        }
+        W(this.a[a][0], this.a[a][1], 9 * b, .2, .2);
+        W(this.a[a][0], this.a[a][2], 9 * b, .2, .2);
+        W(this.a[a][1], this.a[a][2], 11 * b, .2, .2);
+        Xf(this, a, 0);
+        for (b = this.g[a] = 0; 3 > b; b++) {
+            Wf(this, a, b, .5);
+        }
+        this.a[a][20].set(this.a[a][0]);
+        if (0 >= this.j[a]) {
+            this.b[a] = 3;
+            for (b = 0; 3 > b; b++) {
+                this.a[a][b].x += L(-.5, .5);
+                this.a[a][b].y -= L(2, 3);
+            }
+            tf(this, a, 0);
+        }
+    } else {
+        for (b = 0; 3 > b; b++) {
+            V(this.a[a][b], this.c[a][b], .05, .99);
+        }
+        for (b = this.g[a] = 0; 3 > b; b++) {
+            Wf(this, a, b, .5);
+        }
+        if (150 < this.h[a]++) {
+            this.sub(a--);
+        }
     }
     return a;
 };
 aa.fff = Vf.prototype.M;
 Vf.prototype.M = function (a) {
     var b;
-    if (this.b[a]) {
-        if (1 == this.b[a] || 2 == this.b[a]) {
-            V(this.a[a][0], this.c[a][0], .05, .99);
-            V(this.a[a][1], this.c[a][1], .05, .9);
-            V(this.a[a][2], this.c[a][2], .05, .9);
-            b = Df(this.a[a][0].x - 200, this.a[a][0].y - 50, this.a[a][0].x + 200, this.a[a][0].y + 50, 0);
-            if (-1 != b) {
-                if (u.a[b][2].x < this.a[a][0].x) {
-                    this.a[a][0].x += -.001;
-                } else {
-                    this.a[a][0].x += .001;
-                }
-            }
-            if (0 < (this.g[a] & 2)) {
-                var c = 0;
-                if (-1 != b) {
-                    if (u.a[b][2].x < this.a[a][0].x) {
-                        c = -1;
-                    } else {
-                        c = 1;
-                    }
-                } else {
-                    c = pe(-1, 1);
-                }
-                if (10 > C(100)) {
-                    this.a[a][0].x += L(.4, .6) * c;
-                    this.a[a][0].y += L(-1.5, -2);
-                }
-            }
-            W(this.a[a][0], this.a[a][1], 0, 0, .01);
-            W(this.a[a][1], this.a[a][2], 0, 0, .01);
-            Xf(this, a, 0);
-            this.g[a] = 0;
-            Wf(this, a, 0, .5);
-            b = this.g[a];
-            Wf(this, a, 1, .5);
-            Wf(this, a, 2, .5);
-            this.g[a] = b;
-            this.a[a][20].set(this.a[a][0]);
-            if (0 >= this.j[a]) {
-                this.b[a] = 3;
-                for (b = 0; 3 > b; b++) {
-                    this.a[a][b].x += L(-.5, .5);
-                    this.a[a][b].y -= L(2, 3);
-                }
-                tf(this, a, 0);
-            }
-        } else {
-            for (b = 0; 3 > b; b++) {
-                V(this.a[a][b], this.c[a][b], .05, .99);
-            }
-            for (b = this.g[a] = 0; 3 > b; b++) {
-                Wf(this, a, b, .5);
-            }
-            if (150 < this.h[a]++) {
-                this.sub(a--);
-            }
-        }
-    } else {
+    if (!this.b[a]) {
         this.a[a][0].x += 0;
         this.a[a][1].x += 1;
         this.a[a][2].x += 2;
@@ -7280,6 +7182,60 @@ Vf.prototype.M = function (a) {
             this.c[a][b].set(this.a[a][b]);
         }
         this.b[a] = 1;
+    } else if (1 == this.b[a] || 2 == this.b[a]) {
+        V(this.a[a][0], this.c[a][0], .05, .99);
+        V(this.a[a][1], this.c[a][1], .05, .9);
+        V(this.a[a][2], this.c[a][2], .05, .9);
+        b = Df(this.a[a][0].x - 200, this.a[a][0].y - 50, this.a[a][0].x + 200, this.a[a][0].y + 50, 0);
+        if (-1 != b) {
+            if (u.a[b][2].x < this.a[a][0].x) {
+                this.a[a][0].x += -.001;
+            } else {
+                this.a[a][0].x += .001;
+            }
+        }
+        if (0 < (this.g[a] & 2)) {
+            var c = 0;
+            if (!(-1 != b)) {
+                c = pe(-1, 1);
+            } else if (u.a[b][2].x < this.a[a][0].x) {
+                c = -1;
+            } else {
+                c = 1;
+            }
+            if (10 > C(100)) {
+                this.a[a][0].x += L(.4, .6) * c;
+                this.a[a][0].y += L(-1.5, -2);
+            }
+        }
+        W(this.a[a][0], this.a[a][1], 0, 0, .01);
+        W(this.a[a][1], this.a[a][2], 0, 0, .01);
+        Xf(this, a, 0);
+        this.g[a] = 0;
+        Wf(this, a, 0, .5);
+        b = this.g[a];
+        Wf(this, a, 1, .5);
+        Wf(this, a, 2, .5);
+        this.g[a] = b;
+        this.a[a][20].set(this.a[a][0]);
+        if (0 >= this.j[a]) {
+            this.b[a] = 3;
+            for (b = 0; 3 > b; b++) {
+                this.a[a][b].x += L(-.5, .5);
+                this.a[a][b].y -= L(2, 3);
+            }
+            tf(this, a, 0);
+        }
+    } else {
+        for (b = 0; 3 > b; b++) {
+            V(this.a[a][b], this.c[a][b], .05, .99);
+        }
+        for (b = this.g[a] = 0; 3 > b; b++) {
+            Wf(this, a, b, .5);
+        }
+        if (150 < this.h[a]++) {
+            this.sub(a--);
+        }
     }
     return a;
 };
@@ -7288,79 +7244,7 @@ Vf.prototype.N = function (a) {
     var b;
     var c = new ge();
     b = D[this.f[a]][Qf];
-    if (this.b[a]) {
-        if (1 == this.b[a] || 2 == this.b[a]) {
-            V(this.a[a][0], this.c[a][0], 0, .99);
-            V(this.a[a][1], this.c[a][1], 0, .99);
-            V(this.a[a][2], this.c[a][2], 0, .99);
-            V(this.a[a][3], this.c[a][3], 0, .99);
-            V(this.a[a][4], this.c[a][4], 0, .99);
-            V(this.a[a][5], this.c[a][5], 0, .99);
-            V(this.a[a][6], this.c[a][6], 0, .99);
-            Af(c, 0, 0);
-            var d = Df(this.a[a][0].x - 150, this.a[a][0].y - 150, this.a[a][0].x + 150, this.a[a][0].y + 150, 0);
-            if (-1 != d) {
-                Bf(c, u.a[d][2], this.a[a][0]);
-                d = ke(c);
-                d -= D[this.f[a]][32] - 10;
-                if (0 > d) {
-                    le(c, -.05);
-                } else {
-                    le(c, .05);
-                }
-            }
-            this.a[a][0].add(c);
-            if (10 > C(100)) {
-                this.a[a][0].x += L(-1, 1);
-                this.a[a][0].y += L(-1, 1);
-            }
-            this.a[a][2].x += L(0, -.1);
-            this.a[a][3].x += L(0, -.1);
-            this.a[a][5].x += L(0, .1);
-            this.a[a][6].x += L(0, .1);
-            c = .5;
-            d = 6 * b;
-            W(this.a[a][0], this.a[a][1], 3 * b, c, c);
-            W(this.a[a][0], this.a[a][4], 3 * b, c, c);
-            W(this.a[a][1], this.a[a][2], d, c, c);
-            W(this.a[a][1], this.a[a][3], d, c, c);
-            W(this.a[a][2], this.a[a][3], d, c, c);
-            W(this.a[a][4], this.a[a][5], d, c, c);
-            W(this.a[a][4], this.a[a][6], d, c, c);
-            W(this.a[a][5], this.a[a][6], d, c, c);
-            Xf(this, a, 0);
-            for (b = this.g[a] = 0; 7 > b; b++) {
-                Wf(this, a, b, 1);
-            }
-            this.a[a][20].set(this.a[a][0]);
-            if (0 >= this.j[a]) {
-                this.b[a] = 3;
-                for (b = 0; 7 > b; b++) {
-                    this.a[a][b].x += L(-1, 1);
-                    this.a[a][b].y -= L(1, 2);
-                }
-                tf(this, a, 0);
-            }
-        } else {
-            for (b = 0; 8 > b; b++) {
-                V(this.a[a][b], this.c[a][b], .05, .99);
-            }
-            c = .5;
-            d = 6 * (150 - this.h[a]) / 150;
-            W(this.a[a][1], this.a[a][2], d, c, c);
-            W(this.a[a][1], this.a[a][3], d, c, c);
-            W(this.a[a][2], this.a[a][3], d, c, c);
-            W(this.a[a][4], this.a[a][5], d, c, c);
-            W(this.a[a][4], this.a[a][6], d, c, c);
-            W(this.a[a][5], this.a[a][6], d, c, c);
-            for (b = this.g[a] = 0; 7 > b; b++) {
-                Wf(this, a, b, .5);
-            }
-            if (150 < this.h[a]++) {
-                this.sub(a--);
-            }
-        }
-    } else {
+    if (!this.b[a]) {
         this.a[a][0].x += 1;
         this.a[a][0].y += 1;
         this.a[a][1].x += 1;
@@ -7379,6 +7263,76 @@ Vf.prototype.N = function (a) {
             this.c[a][b].set(this.a[a][b]);
         }
         this.b[a] = 1;
+    } else if (1 == this.b[a] || 2 == this.b[a]) {
+        V(this.a[a][0], this.c[a][0], 0, .99);
+        V(this.a[a][1], this.c[a][1], 0, .99);
+        V(this.a[a][2], this.c[a][2], 0, .99);
+        V(this.a[a][3], this.c[a][3], 0, .99);
+        V(this.a[a][4], this.c[a][4], 0, .99);
+        V(this.a[a][5], this.c[a][5], 0, .99);
+        V(this.a[a][6], this.c[a][6], 0, .99);
+        Af(c, 0, 0);
+        var d = Df(this.a[a][0].x - 150, this.a[a][0].y - 150, this.a[a][0].x + 150, this.a[a][0].y + 150, 0);
+        if (-1 != d) {
+            Bf(c, u.a[d][2], this.a[a][0]);
+            d = ke(c);
+            d -= D[this.f[a]][32] - 10;
+            if (0 > d) {
+                le(c, -.05);
+            } else {
+                le(c, .05);
+            }
+        }
+        this.a[a][0].add(c);
+        if (10 > C(100)) {
+            this.a[a][0].x += L(-1, 1);
+            this.a[a][0].y += L(-1, 1);
+        }
+        this.a[a][2].x += L(0, -.1);
+        this.a[a][3].x += L(0, -.1);
+        this.a[a][5].x += L(0, .1);
+        this.a[a][6].x += L(0, .1);
+        c = .5;
+        d = 6 * b;
+        W(this.a[a][0], this.a[a][1], 3 * b, c, c);
+        W(this.a[a][0], this.a[a][4], 3 * b, c, c);
+        W(this.a[a][1], this.a[a][2], d, c, c);
+        W(this.a[a][1], this.a[a][3], d, c, c);
+        W(this.a[a][2], this.a[a][3], d, c, c);
+        W(this.a[a][4], this.a[a][5], d, c, c);
+        W(this.a[a][4], this.a[a][6], d, c, c);
+        W(this.a[a][5], this.a[a][6], d, c, c);
+        Xf(this, a, 0);
+        for (b = this.g[a] = 0; 7 > b; b++) {
+            Wf(this, a, b, 1);
+        }
+        this.a[a][20].set(this.a[a][0]);
+        if (0 >= this.j[a]) {
+            this.b[a] = 3;
+            for (b = 0; 7 > b; b++) {
+                this.a[a][b].x += L(-1, 1);
+                this.a[a][b].y -= L(1, 2);
+            }
+            tf(this, a, 0);
+        }
+    } else {
+        for (b = 0; 8 > b; b++) {
+            V(this.a[a][b], this.c[a][b], .05, .99);
+        }
+        c = .5;
+        d = 6 * (150 - this.h[a]) / 150;
+        W(this.a[a][1], this.a[a][2], d, c, c);
+        W(this.a[a][1], this.a[a][3], d, c, c);
+        W(this.a[a][2], this.a[a][3], d, c, c);
+        W(this.a[a][4], this.a[a][5], d, c, c);
+        W(this.a[a][4], this.a[a][6], d, c, c);
+        W(this.a[a][5], this.a[a][6], d, c, c);
+        for (b = this.g[a] = 0; 7 > b; b++) {
+            Wf(this, a, b, .5);
+        }
+        if (150 < this.h[a]++) {
+            this.sub(a--);
+        }
     }
     return a;
 };
@@ -7387,69 +7341,67 @@ Vf.prototype.O = function (a) {
     var b;
     var c = new ge();
     var d = D[this.f[a]][Qf];
-    if (this.b[a]) {
-        if (1 == this.b[a] || 2 == this.b[a]) {
-            V(this.a[a][0], this.c[a][0], 0, .99);
-            for (b = 1; 6 > b; b++) {
-                V(this.a[a][b], this.c[a][b], 0, .9);
-            }
-            Af(c, 0, 0);
-            b = Df(this.a[a][0].x - 200, this.a[a][0].y - 200, this.a[a][0].x + 200, this.a[a][0].y + 200, 0);
-            if (-1 != b) {
-                Bf(c, u.a[b][2], this.a[a][0]);
-                b = ke(c);
-                b -= D[this.f[a]][32] / 2 - 10;
-                if (0 > b) {
-                    le(c, -.01);
-                } else {
-                    le(c, .01);
-                }
-            }
-            b = H.a[y(J(this.a[a][0].y + 24, 0, 255) / 8)][y(J(this.a[a][0].x, 0, 511) / 8)];
-            if (0 <= b && 8 >= b) {
-                c.y -= .02;
-            }
-            if (2 > C(100)) {
-                c.x += L(-.5, .5);
-                c.y += L(-.5, .5);
-            }
-            this.a[a][0].add(c);
-            c = .02;
-            d = 5 * d;
-            for (b = 0; 5 > b; b++) {
-                W(this.a[a][b], this.a[a][b + 1], d, 0, c);
-            }
-            Xf(this, a, 0);
-            for (b = this.g[a] = 0; 6 > b; b++) {
-                Wf(this, a, b, .5);
-            }
-            this.a[a][20].set(this.a[a][0]);
-            if (0 >= this.j[a]) {
-                this.b[a] = 3;
-                for (b = this.h[a] = 0; 6 > b; b++) {
-                    this.a[a][b].x += L(-1, 1);
-                    this.a[a][b].y -= L(1, 2);
-                }
-                tf(this, a, 0);
-            }
-        } else {
-            for (b = 0; 6 > b; b++) {
-                V(this.a[a][b], this.c[a][b], .05, .99);
-            }
-            c = .5;
-            d = 10 * (150 - this.h[a]) / 150;
-            W(this.a[a][1], this.a[a][2], d, c, c);
-            W(this.a[a][2], this.a[a][3], d, c, c);
-            W(this.a[a][3], this.a[a][4], d, c, c);
-            for (b = this.g[a] = 0; 6 > b; b++) {
-                Wf(this, a, b, .5);
-            }
-            if (150 < this.h[a]++) {
-                this.sub(a--);
+    if (!this.b[a]) {
+        this.b[a] = 1;
+    } else if (1 == this.b[a] || 2 == this.b[a]) {
+        V(this.a[a][0], this.c[a][0], 0, .99);
+        for (b = 1; 6 > b; b++) {
+            V(this.a[a][b], this.c[a][b], 0, .9);
+        }
+        Af(c, 0, 0);
+        b = Df(this.a[a][0].x - 200, this.a[a][0].y - 200, this.a[a][0].x + 200, this.a[a][0].y + 200, 0);
+        if (-1 != b) {
+            Bf(c, u.a[b][2], this.a[a][0]);
+            b = ke(c);
+            b -= D[this.f[a]][32] / 2 - 10;
+            if (0 > b) {
+                le(c, -.01);
+            } else {
+                le(c, .01);
             }
         }
+        b = H.a[y(J(this.a[a][0].y + 24, 0, 255) / 8)][y(J(this.a[a][0].x, 0, 511) / 8)];
+        if (0 <= b && 8 >= b) {
+            c.y -= .02;
+        }
+        if (2 > C(100)) {
+            c.x += L(-.5, .5);
+            c.y += L(-.5, .5);
+        }
+        this.a[a][0].add(c);
+        c = .02;
+        d = 5 * d;
+        for (b = 0; 5 > b; b++) {
+            W(this.a[a][b], this.a[a][b + 1], d, 0, c);
+        }
+        Xf(this, a, 0);
+        for (b = this.g[a] = 0; 6 > b; b++) {
+            Wf(this, a, b, .5);
+        }
+        this.a[a][20].set(this.a[a][0]);
+        if (0 >= this.j[a]) {
+            this.b[a] = 3;
+            for (b = this.h[a] = 0; 6 > b; b++) {
+                this.a[a][b].x += L(-1, 1);
+                this.a[a][b].y -= L(1, 2);
+            }
+            tf(this, a, 0);
+        }
     } else {
-        this.b[a] = 1;
+        for (b = 0; 6 > b; b++) {
+            V(this.a[a][b], this.c[a][b], .05, .99);
+        }
+        c = .5;
+        d = 10 * (150 - this.h[a]) / 150;
+        W(this.a[a][1], this.a[a][2], d, c, c);
+        W(this.a[a][2], this.a[a][3], d, c, c);
+        W(this.a[a][3], this.a[a][4], d, c, c);
+        for (b = this.g[a] = 0; 6 > b; b++) {
+            Wf(this, a, b, .5);
+        }
+        if (150 < this.h[a]++) {
+            this.sub(a--);
+        }
     }
     return a;
 };
@@ -7457,130 +7409,128 @@ aa.fff = Vf.prototype.G;
 Vf.prototype.G = function (a, b) {
     var c;
     c = D[this.f[a]][Qf];
-    if (this.b[a]) {
-        if (1 == this.b[a] || 2 == this.b[a]) {
-            if (4 == b) {
-                V(this.a[a][0], this.c[a][0], -.2, .99);
-                V(this.a[a][1], this.c[a][1], 0, .99);
-                V(this.a[a][2], this.c[a][2], -.1, .99);
-                V(this.a[a][3], this.c[a][3], 0, .99);
-                V(this.a[a][4], this.c[a][4], 0, .99);
-                V(this.a[a][5], this.c[a][5], 0, .99);
-                V(this.a[a][6], this.c[a][6], 0, .99);
-                V(this.a[a][7], this.c[a][7], 0, .99);
-                V(this.a[a][8], this.c[a][8], 0, .99);
-                V(this.a[a][9], this.c[a][9], .3, .99);
-                V(this.a[a][10], this.c[a][10], .3, .99);
-            } else if (12 == b) {
-                V(this.a[a][0], this.c[a][0], -.02, .99);
-                V(this.a[a][1], this.c[a][1], 0, .99);
-                V(this.a[a][2], this.c[a][2], -.01, .99);
-                V(this.a[a][3], this.c[a][3], 0, .99);
-                V(this.a[a][4], this.c[a][4], 0, .99);
-                V(this.a[a][5], this.c[a][5], 0, .99);
-                V(this.a[a][6], this.c[a][6], 0, .99);
-                V(this.a[a][7], this.c[a][7], 0, .99);
-                V(this.a[a][8], this.c[a][8], 0, .99);
-                V(this.a[a][9], this.c[a][9], .1, .99);
-                V(this.a[a][10], this.c[a][10], .1, .99);
-            }
-            if (50 > C(100) && 0 < (this.g[a] & 3)) {
-                var d = Df(this.a[a][0].x - 200, this.a[a][0].y - 50, this.a[a][0].x + 200, this.a[a][0].y + 50, 0);
-                if (-1 != d) {
-                    if (u.a[d][2].x < this.a[a][0].x) {
-                        this.b[a] = 1;
-                    } else {
-                        this.b[a] = 2;
-                    }
-                } else if (10 > C(100)) {
-                    this.b[a] = pe(1, 2);
-                }
-                var e = d = 1;
-                var g = 0;
-                if (12 == b) {
-                    d = .25;
-                    e = .3;
-                    g = .25;
-                }
-                if (1 == this.b[a]) {
-                    if (this.a[a][9].x < this.a[a][10].x) {
-                        this.a[a][10].x += C(-d);
-                        this.a[a][10].y += -e;
-                    } else {
-                        this.a[a][9].x += C(-d);
-                        this.a[a][9].y += -e;
-                    }
-                    this.a[a][5].x += C(-g);
-                    this.a[a][6].x += C(-g);
+    if (!this.b[a]) {
+        this.b[a] = 1;
+    } else if (1 == this.b[a] || 2 == this.b[a]) {
+        if (4 == b) {
+            V(this.a[a][0], this.c[a][0], -.2, .99);
+            V(this.a[a][1], this.c[a][1], 0, .99);
+            V(this.a[a][2], this.c[a][2], -.1, .99);
+            V(this.a[a][3], this.c[a][3], 0, .99);
+            V(this.a[a][4], this.c[a][4], 0, .99);
+            V(this.a[a][5], this.c[a][5], 0, .99);
+            V(this.a[a][6], this.c[a][6], 0, .99);
+            V(this.a[a][7], this.c[a][7], 0, .99);
+            V(this.a[a][8], this.c[a][8], 0, .99);
+            V(this.a[a][9], this.c[a][9], .3, .99);
+            V(this.a[a][10], this.c[a][10], .3, .99);
+        } else if (12 == b) {
+            V(this.a[a][0], this.c[a][0], -.02, .99);
+            V(this.a[a][1], this.c[a][1], 0, .99);
+            V(this.a[a][2], this.c[a][2], -.01, .99);
+            V(this.a[a][3], this.c[a][3], 0, .99);
+            V(this.a[a][4], this.c[a][4], 0, .99);
+            V(this.a[a][5], this.c[a][5], 0, .99);
+            V(this.a[a][6], this.c[a][6], 0, .99);
+            V(this.a[a][7], this.c[a][7], 0, .99);
+            V(this.a[a][8], this.c[a][8], 0, .99);
+            V(this.a[a][9], this.c[a][9], .1, .99);
+            V(this.a[a][10], this.c[a][10], .1, .99);
+        }
+        if (50 > C(100) && 0 < (this.g[a] & 3)) {
+            var d = Df(this.a[a][0].x - 200, this.a[a][0].y - 50, this.a[a][0].x + 200, this.a[a][0].y + 50, 0);
+            if (-1 != d) {
+                if (u.a[d][2].x < this.a[a][0].x) {
+                    this.b[a] = 1;
                 } else {
-                    if (this.a[a][9].x < this.a[a][10].x) {
-                        this.a[a][9].x += C(d);
-                        this.a[a][9].y += -e;
-                    } else {
-                        this.a[a][10].x += C(d);
-                        this.a[a][10].y += -e;
-                    }
-                    this.a[a][5].x += C(g);
-                    this.a[a][6].x += C(g);
+                    this.b[a] = 2;
                 }
+            } else if (10 > C(100)) {
+                this.b[a] = pe(1, 2);
             }
-            d = .5;
-            e = 1.2 * c;
+            var e = d = 1;
+            var g = 0;
             if (12 == b) {
-                d = .02;
-                e = 1 * c;
+                d = .25;
+                e = .3;
+                g = .25;
             }
-            W(this.a[a][0], this.a[a][1], 3 * e, d, d);
-            W(this.a[a][1], this.a[a][2], 3 * e, d, d);
-            W(this.a[a][1], this.a[a][3], 4 * e, d, d);
-            W(this.a[a][1], this.a[a][4], 4 * e, d, d);
-            W(this.a[a][3], this.a[a][5], 4 * e, d, d);
-            W(this.a[a][4], this.a[a][6], 4 * e, d, d);
-            W(this.a[a][2], this.a[a][7], 4 * e, d, d);
-            W(this.a[a][2], this.a[a][8], 4 * e, d, d);
-            W(this.a[a][7], this.a[a][9], 4 * e, d, d);
-            W(this.a[a][8], this.a[a][10], 4 * e, d, d);
-            W(this.a[a][7], this.a[a][8], 5 * e, d, d);
-            if (332 == this.f[a]) {
-                Xf(this, a, Mf(6));
+            if (1 == this.b[a]) {
+                if (this.a[a][9].x < this.a[a][10].x) {
+                    this.a[a][10].x += C(-d);
+                    this.a[a][10].y += -e;
+                } else {
+                    this.a[a][9].x += C(-d);
+                    this.a[a][9].y += -e;
+                }
+                this.a[a][5].x += C(-g);
+                this.a[a][6].x += C(-g);
             } else {
-                Xf(this, a, 0);
-                if (0 != D[this.f[a]][qd]) {
-                    Xf(this, a, 1);
+                if (this.a[a][9].x < this.a[a][10].x) {
+                    this.a[a][9].x += C(d);
+                    this.a[a][9].y += -e;
+                } else {
+                    this.a[a][10].x += C(d);
+                    this.a[a][10].y += -e;
                 }
-            }
-            for (c = this.g[a] = 0; 11 > c; c++) {
-                Wf(this, a, c, .5);
-            }
-            this.a[a][20].set(this.a[a][1]);
-            if (0 >= this.j[a]) {
-                this.b[a] = 3;
-                for (c = this.h[a] = 0; 11 > c; c++) {
-                    this.a[a][c].x += L(-1, 1);
-                    this.a[a][c].y -= L(1, 2);
-                }
-                tf(this, a, 0);
-            }
-        } else {
-            for (c = 0; 11 > c; c++) {
-                V(this.a[a][c], this.c[a][c], .05, .99);
-            }
-            d = .5;
-            e = 1.2 * (150 - this.h[a]) / 150;
-            W(this.a[a][1], this.a[a][2], 3 * e, d, d);
-            W(this.a[a][3], this.a[a][5], 4 * e, d, d);
-            W(this.a[a][4], this.a[a][6], 4 * e, d, d);
-            W(this.a[a][7], this.a[a][9], 4 * e, d, d);
-            W(this.a[a][8], this.a[a][10], 4 * e, d, d);
-            for (c = this.g[a] = 0; 11 > c; c++) {
-                Wf(this, a, c, .5);
-            }
-            if (150 < this.h[a]++) {
-                this.sub(a--);
+                this.a[a][5].x += C(g);
+                this.a[a][6].x += C(g);
             }
         }
+        d = .5;
+        e = 1.2 * c;
+        if (12 == b) {
+            d = .02;
+            e = 1 * c;
+        }
+        W(this.a[a][0], this.a[a][1], 3 * e, d, d);
+        W(this.a[a][1], this.a[a][2], 3 * e, d, d);
+        W(this.a[a][1], this.a[a][3], 4 * e, d, d);
+        W(this.a[a][1], this.a[a][4], 4 * e, d, d);
+        W(this.a[a][3], this.a[a][5], 4 * e, d, d);
+        W(this.a[a][4], this.a[a][6], 4 * e, d, d);
+        W(this.a[a][2], this.a[a][7], 4 * e, d, d);
+        W(this.a[a][2], this.a[a][8], 4 * e, d, d);
+        W(this.a[a][7], this.a[a][9], 4 * e, d, d);
+        W(this.a[a][8], this.a[a][10], 4 * e, d, d);
+        W(this.a[a][7], this.a[a][8], 5 * e, d, d);
+        if (332 == this.f[a]) {
+            Xf(this, a, Mf(6));
+        } else {
+            Xf(this, a, 0);
+            if (0 != D[this.f[a]][qd]) {
+                Xf(this, a, 1);
+            }
+        }
+        for (c = this.g[a] = 0; 11 > c; c++) {
+            Wf(this, a, c, .5);
+        }
+        this.a[a][20].set(this.a[a][1]);
+        if (0 >= this.j[a]) {
+            this.b[a] = 3;
+            for (c = this.h[a] = 0; 11 > c; c++) {
+                this.a[a][c].x += L(-1, 1);
+                this.a[a][c].y -= L(1, 2);
+            }
+            tf(this, a, 0);
+        }
     } else {
-        this.b[a] = 1;
+        for (c = 0; 11 > c; c++) {
+            V(this.a[a][c], this.c[a][c], .05, .99);
+        }
+        d = .5;
+        e = 1.2 * (150 - this.h[a]) / 150;
+        W(this.a[a][1], this.a[a][2], 3 * e, d, d);
+        W(this.a[a][3], this.a[a][5], 4 * e, d, d);
+        W(this.a[a][4], this.a[a][6], 4 * e, d, d);
+        W(this.a[a][7], this.a[a][9], 4 * e, d, d);
+        W(this.a[a][8], this.a[a][10], 4 * e, d, d);
+        for (c = this.g[a] = 0; 11 > c; c++) {
+            Wf(this, a, c, .5);
+        }
+        if (150 < this.h[a]++) {
+            this.sub(a--);
+        }
     }
     return a;
 };
@@ -7588,55 +7538,53 @@ aa.fff = Vf.prototype.H;
 Vf.prototype.H = function (a, b) {
     var c;
     var d = D[this.f[a]][Qf];
-    if (this.b[a]) {
-        if (10 > this.b[a]) {
-            if (5 == b) {
-                for (c = 0; c < this.b[a] - 1; c++) {
-                    V(this.a[a][c], this.c[a][c], -.04, .99);
-                }
-                V(this.a[a][c], this.c[a][c], 1, .99);
-            } else {
-                for (c = 0; c < this.b[a] - 1; c++) {
-                    V(this.a[a][c], this.c[a][c], .04, .99);
-                }
-                V(this.a[a][c], this.c[a][c], -1, .99);
+    if (!this.b[a]) {
+        this.b[a] = y(L(4, 8));
+    } else if (10 > this.b[a]) {
+        if (5 == b) {
+            for (c = 0; c < this.b[a] - 1; c++) {
+                V(this.a[a][c], this.c[a][c], -.04, .99);
             }
-            if (10 > C(100)) {
-                c = y(C(4));
-                this.a[a][c].x += L(-.5, .5);
-            }
-            W(this.a[a][0], this.a[a][1], 8 * d, .2, .2);
-            for (c = 1; c < this.b[a] - 2; c++) {
-                W(this.a[a][c], this.a[a][c + 1], 6 * d, .2, .2);
-            }
-            W(this.a[a][c], this.a[a][c + 1], 6 * d, .2, 0);
-            Xf(this, a, 0);
-            for (c = this.g[a] = 0; c < this.b[a]; c++) {
-                Wf(this, a, c, .5);
-            }
-            this.a[a][20].x = .5 * (this.a[a][0].x + this.a[a][this.b[a] - 1].x);
-            this.a[a][20].y = .5 * (this.a[a][0].y + this.a[a][this.b[a] - 1].y);
-            if (0 >= this.j[a]) {
-                for (c = 0; c < this.b[a]; c++) {
-                    this.a[a][c].x += L(-.5, .5);
-                    this.a[a][c].y -= L(2, 3);
-                }
-                this.b[a] += 10;
-                tf(this, a, 0);
-            }
+            V(this.a[a][c], this.c[a][c], 1, .99);
         } else {
-            for (c = 0; c < this.b[a] - 10; c++) {
-                V(this.a[a][c], this.c[a][c], .05, .99);
+            for (c = 0; c < this.b[a] - 1; c++) {
+                V(this.a[a][c], this.c[a][c], .04, .99);
             }
-            for (c = this.g[a] = 0; c < this.b[a] - 10; c++) {
-                Wf(this, a, c, .5);
+            V(this.a[a][c], this.c[a][c], -1, .99);
+        }
+        if (10 > C(100)) {
+            c = y(C(4));
+            this.a[a][c].x += L(-.5, .5);
+        }
+        W(this.a[a][0], this.a[a][1], 8 * d, .2, .2);
+        for (c = 1; c < this.b[a] - 2; c++) {
+            W(this.a[a][c], this.a[a][c + 1], 6 * d, .2, .2);
+        }
+        W(this.a[a][c], this.a[a][c + 1], 6 * d, .2, 0);
+        Xf(this, a, 0);
+        for (c = this.g[a] = 0; c < this.b[a]; c++) {
+            Wf(this, a, c, .5);
+        }
+        this.a[a][20].x = .5 * (this.a[a][0].x + this.a[a][this.b[a] - 1].x);
+        this.a[a][20].y = .5 * (this.a[a][0].y + this.a[a][this.b[a] - 1].y);
+        if (0 >= this.j[a]) {
+            for (c = 0; c < this.b[a]; c++) {
+                this.a[a][c].x += L(-.5, .5);
+                this.a[a][c].y -= L(2, 3);
             }
-            if (150 < this.h[a]++) {
-                this.sub(a--);
-            }
+            this.b[a] += 10;
+            tf(this, a, 0);
         }
     } else {
-        this.b[a] = y(L(4, 8));
+        for (c = 0; c < this.b[a] - 10; c++) {
+            V(this.a[a][c], this.c[a][c], .05, .99);
+        }
+        for (c = this.g[a] = 0; c < this.b[a] - 10; c++) {
+            Wf(this, a, c, .5);
+        }
+        if (150 < this.h[a]++) {
+            this.sub(a--);
+        }
     }
     return a;
 };
@@ -7644,67 +7592,7 @@ aa.fff = Vf.prototype.P;
 Vf.prototype.P = function (a) {
     var b;
     var c = D[this.f[a]][Qf];
-    if (this.b[a]) {
-        if (1 == this.b[a] || 2 == this.b[a]) {
-            V(this.a[a][0], this.c[a][0], .5, .99);
-            for (b = 1; 7 > b; b++) {
-                V(this.a[a][b], this.c[a][b], 0, .99);
-            }
-            b = Df(this.a[a][0].x - 200, this.a[a][0].y - 50, this.a[a][0].x + 200, this.a[a][0].y + 50, 0);
-            if (-1 != b && 40 > C(100) && 0 < (this.g[a] & 2)) {
-                if (u.a[b][2].x < this.a[a][0].x) {
-                    this.a[a][0].x += -2;
-                } else {
-                    this.a[a][0].x += 2;
-                }
-            }
-            var d = .1;
-            var c = 1.2 * c;
-            for (b = 1; 4 > b; b++) {
-                W(this.a[a][b], this.a[a][b + 3], 20 * c, d, d);
-            }
-            for (b = 1; 5 > b; b++) {
-                W(this.a[a][b], this.a[a][b + 2], 17 * c, d, d);
-            }
-            W(this.a[a][b + 0], this.a[a][1], 17 * c, d, d);
-            W(this.a[a][b + 1], this.a[a][2], 17 * c, d, d);
-            for (b = 1; 6 > b; b++) {
-                W(this.a[a][b], this.a[a][b + 1], 10 * c, d, d);
-            }
-            W(this.a[a][b], this.a[a][1], 10 * c, d, d);
-            for (b = 1; 7 > b; b++) {
-                W(this.a[a][0], this.a[a][b], 10 * c, .2, .2);
-            }
-            Xf(this, a, 0);
-            for (b = this.g[a] = 0; 7 > b; b++) {
-                Wf(this, a, b, .5);
-            }
-            this.a[a][20].set(this.a[a][0]);
-            if (0 >= this.j[a]) {
-                this.b[a] = 3;
-                for (b = this.h[a] = 0; 7 > b; b++) {
-                    this.a[a][b].x += L(-.5, .5);
-                    this.a[a][b].y -= L(2, 3);
-                }
-                tf(this, a, 0);
-            }
-        } else {
-            for (b = 0; 7 > b; b++) {
-                V(this.a[a][b], this.c[a][b], .05, .99);
-            }
-            d = .5;
-            c = 1.2 * c * (150 - this.h[a]) / 150;
-            for (b = 1; 6 > b; b++) {
-                W(this.a[a][b], this.a[a][b + 1], 10 * c, d, d);
-            }
-            for (b = this.g[a] = 0; 7 > b; b++) {
-                Wf(this, a, b, .5);
-            }
-            if (150 < this.h[a]++) {
-                this.sub(a--);
-            }
-        }
-    } else {
+    if (!this.b[a]) {
         this.a[a][0].x += 1;
         this.a[a][0].y += 1;
         this.a[a][1].x += 1;
@@ -7723,6 +7611,64 @@ Vf.prototype.P = function (a) {
             this.c[a][b].set(this.a[a][b]);
         }
         this.b[a] = 1;
+    } else if (1 == this.b[a] || 2 == this.b[a]) {
+        V(this.a[a][0], this.c[a][0], .5, .99);
+        for (b = 1; 7 > b; b++) {
+            V(this.a[a][b], this.c[a][b], 0, .99);
+        }
+        b = Df(this.a[a][0].x - 200, this.a[a][0].y - 50, this.a[a][0].x + 200, this.a[a][0].y + 50, 0);
+        if (-1 != b && 40 > C(100) && 0 < (this.g[a] & 2)) {
+            if (u.a[b][2].x < this.a[a][0].x) {
+                this.a[a][0].x += -2;
+            } else {
+                this.a[a][0].x += 2;
+            }
+        }
+        var d = .1;
+        var c = 1.2 * c;
+        for (b = 1; 4 > b; b++) {
+            W(this.a[a][b], this.a[a][b + 3], 20 * c, d, d);
+        }
+        for (b = 1; 5 > b; b++) {
+            W(this.a[a][b], this.a[a][b + 2], 17 * c, d, d);
+        }
+        W(this.a[a][b + 0], this.a[a][1], 17 * c, d, d);
+        W(this.a[a][b + 1], this.a[a][2], 17 * c, d, d);
+        for (b = 1; 6 > b; b++) {
+            W(this.a[a][b], this.a[a][b + 1], 10 * c, d, d);
+        }
+        W(this.a[a][b], this.a[a][1], 10 * c, d, d);
+        for (b = 1; 7 > b; b++) {
+            W(this.a[a][0], this.a[a][b], 10 * c, .2, .2);
+        }
+        Xf(this, a, 0);
+        for (b = this.g[a] = 0; 7 > b; b++) {
+            Wf(this, a, b, .5);
+        }
+        this.a[a][20].set(this.a[a][0]);
+        if (0 >= this.j[a]) {
+            this.b[a] = 3;
+            for (b = this.h[a] = 0; 7 > b; b++) {
+                this.a[a][b].x += L(-.5, .5);
+                this.a[a][b].y -= L(2, 3);
+            }
+            tf(this, a, 0);
+        }
+    } else {
+        for (b = 0; 7 > b; b++) {
+            V(this.a[a][b], this.c[a][b], .05, .99);
+        }
+        d = .5;
+        c = 1.2 * c * (150 - this.h[a]) / 150;
+        for (b = 1; 6 > b; b++) {
+            W(this.a[a][b], this.a[a][b + 1], 10 * c, d, d);
+        }
+        for (b = this.g[a] = 0; 7 > b; b++) {
+            Wf(this, a, b, .5);
+        }
+        if (150 < this.h[a]++) {
+            this.sub(a--);
+        }
     }
     return a;
 };
@@ -7731,69 +7677,67 @@ Vf.prototype.R = function (a) {
     var b;
     var c = new ge();
     var d = D[this.f[a]][Qf];
-    if (this.b[a]) {
-        if (1 == this.b[a] || 2 == this.b[a]) {
-            V(this.a[a][0], this.c[a][0], 0, .99);
-            for (b = 1; 5 > b; b++) {
-                V(this.a[a][b], this.c[a][b], 0, .9);
-            }
-            Af(c, 0, 0);
-            b = Df(this.a[a][0].x - 150, this.a[a][0].y - 50, this.a[a][0].x + 150, this.a[a][0].y + 50, 0);
-            if (-1 != b) {
-                Bf(c, u.a[b][2], this.a[a][0]);
-                b = ke(c);
-                b -= D[this.f[a]][32] / 2 - 10;
-                if (0 > b) {
-                    le(c, -.01);
-                } else {
-                    le(c, .01);
-                }
-            }
-            if (0 > H.a[y(J(this.a[a][0].y - 7, 0, 255) / 8)][y(J(this.a[a][0].x, 0, 511) / 8)]) {
-                c.y += .03;
-            }
-            if (2 > C(100)) {
-                c.x += L(-.5, .5);
-                c.y += L(-.5, .5);
-            }
-            this.a[a][0].add(c);
-            c = .1;
-            W(this.a[a][0], this.a[a][1], 9 * d, 0, c);
-            W(this.a[a][1], this.a[a][2], 5 * d, 0, c);
-            W(this.a[a][2], this.a[a][3], 6 * d, 0, c);
-            W(this.a[a][2], this.a[a][4], 6 * d, 0, c);
-            W(this.a[a][3], this.a[a][4], 8 * d, c, c);
-            Xf(this, a, 0);
-            for (b = this.g[a] = 0; 5 > b; b++) {
-                Wf(this, a, b, .5);
-            }
-            this.a[a][20].set(this.a[a][1]);
-            if (0 >= this.j[a]) {
-                this.b[a] = 3;
-                for (b = this.h[a] = 0; 5 > b; b++) {
-                    this.a[a][b].x += L(-2, 2);
-                    this.a[a][b].y -= L(2, 4);
-                }
-                tf(this, a, 0);
-            }
-        } else {
-            for (b = 0; 5 > b; b++) {
-                V(this.a[a][b], this.c[a][b], .05, .99);
-            }
-            c = .5;
-            d = 7 * d * (150 - this.h[a]) / 150;
-            W(this.a[a][2], this.a[a][3], d, c, c);
-            W(this.a[a][2], this.a[a][4], d, c, c);
-            W(this.a[a][3], this.a[a][4], d, c, c);
-            for (b = this.g[a] = 0; 5 > b; b++) {
-                Wf(this, a, b, .5);
-            }
-            if (150 < this.h[a]++) {
-                this.sub(a--);
+    if (!this.b[a]) {
+        this.b[a] = 1;
+    } else if (1 == this.b[a] || 2 == this.b[a]) {
+        V(this.a[a][0], this.c[a][0], 0, .99);
+        for (b = 1; 5 > b; b++) {
+            V(this.a[a][b], this.c[a][b], 0, .9);
+        }
+        Af(c, 0, 0);
+        b = Df(this.a[a][0].x - 150, this.a[a][0].y - 50, this.a[a][0].x + 150, this.a[a][0].y + 50, 0);
+        if (-1 != b) {
+            Bf(c, u.a[b][2], this.a[a][0]);
+            b = ke(c);
+            b -= D[this.f[a]][32] / 2 - 10;
+            if (0 > b) {
+                le(c, -.01);
+            } else {
+                le(c, .01);
             }
         }
+        if (0 > H.a[y(J(this.a[a][0].y - 7, 0, 255) / 8)][y(J(this.a[a][0].x, 0, 511) / 8)]) {
+            c.y += .03;
+        }
+        if (2 > C(100)) {
+            c.x += L(-.5, .5);
+            c.y += L(-.5, .5);
+        }
+        this.a[a][0].add(c);
+        c = .1;
+        W(this.a[a][0], this.a[a][1], 9 * d, 0, c);
+        W(this.a[a][1], this.a[a][2], 5 * d, 0, c);
+        W(this.a[a][2], this.a[a][3], 6 * d, 0, c);
+        W(this.a[a][2], this.a[a][4], 6 * d, 0, c);
+        W(this.a[a][3], this.a[a][4], 8 * d, c, c);
+        Xf(this, a, 0);
+        for (b = this.g[a] = 0; 5 > b; b++) {
+            Wf(this, a, b, .5);
+        }
+        this.a[a][20].set(this.a[a][1]);
+        if (0 >= this.j[a]) {
+            this.b[a] = 3;
+            for (b = this.h[a] = 0; 5 > b; b++) {
+                this.a[a][b].x += L(-2, 2);
+                this.a[a][b].y -= L(2, 4);
+            }
+            tf(this, a, 0);
+        }
     } else {
-        this.b[a] = 1;
+        for (b = 0; 5 > b; b++) {
+            V(this.a[a][b], this.c[a][b], .05, .99);
+        }
+        c = .5;
+        d = 7 * d * (150 - this.h[a]) / 150;
+        W(this.a[a][2], this.a[a][3], d, c, c);
+        W(this.a[a][2], this.a[a][4], d, c, c);
+        W(this.a[a][3], this.a[a][4], d, c, c);
+        for (b = this.g[a] = 0; 5 > b; b++) {
+            Wf(this, a, b, .5);
+        }
+        if (150 < this.h[a]++) {
+            this.sub(a--);
+        }
     }
     return a;
 };
@@ -7801,47 +7745,7 @@ aa.fff = Vf.prototype.S;
 Vf.prototype.S = function (a) {
     var b;
     var c = D[this.f[a]][Qf];
-    if (this.b[a]) {
-        if (1 == this.b[a]) {
-            for (b = 0; 2 > b; b++) {
-                V(this.a[a][b], this.c[a][b], -.04, .99);
-            }
-            V(this.a[a][b], this.c[a][b], 1, .99);
-            W(this.a[a][0], this.a[a][1], 7 * c, .2, .2);
-            W(this.a[a][1], this.a[a][2], 5 * c, .2, 0);
-            this.a[a][0].x = this.a[a][1].x = this.a[a][2].x;
-            if (0 < this.s[a]) {
-                this.s[a]--;
-            } else if (0 < this.u[a]) {
-                this.a[a][0].y += L(0, 1);
-                Xf(this, a, 0);
-            }
-            this.u[a] = 0;
-            for (b = this.g[a] = 0; 3 > b; b++) {
-                Wf(this, a, b, .5);
-            }
-            this.a[a][20].x = this.a[a][0].x;
-            this.a[a][20].y = .5 * (this.a[a][0].y + this.a[a][1].y);
-            if (0 >= this.j[a]) {
-                this.b[a]++;
-                for (b = 0; 3 > b; b++) {
-                    this.a[a][b].x += L(-.5, .5);
-                    this.a[a][b].y -= L(2, 3);
-                }
-                tf(this, a, 0);
-            }
-        } else {
-            for (b = 0; 3 > b; b++) {
-                V(this.a[a][b], this.c[a][b], .05, .99);
-            }
-            for (b = this.g[a] = 0; 3 > b; b++) {
-                Wf(this, a, b, .5);
-            }
-            if (150 < this.h[a]++) {
-                this.sub(a--);
-            }
-        }
-    } else {
+    if (!this.b[a]) {
         this.a[a][0].x += 0;
         this.a[a][0].y += 0;
         this.a[a][1].x += 0;
@@ -7849,6 +7753,44 @@ Vf.prototype.S = function (a) {
         this.a[a][2].x += 0;
         this.a[a][2].y += 3;
         this.b[a]++;
+    } else if (1 == this.b[a]) {
+        for (b = 0; 2 > b; b++) {
+            V(this.a[a][b], this.c[a][b], -.04, .99);
+        }
+        V(this.a[a][b], this.c[a][b], 1, .99);
+        W(this.a[a][0], this.a[a][1], 7 * c, .2, .2);
+        W(this.a[a][1], this.a[a][2], 5 * c, .2, 0);
+        this.a[a][0].x = this.a[a][1].x = this.a[a][2].x;
+        if (0 < this.s[a]) {
+            this.s[a]--;
+        } else if (0 < this.u[a]) {
+            this.a[a][0].y += L(0, 1);
+            Xf(this, a, 0);
+        }
+        this.u[a] = 0;
+        for (b = this.g[a] = 0; 3 > b; b++) {
+            Wf(this, a, b, .5);
+        }
+        this.a[a][20].x = this.a[a][0].x;
+        this.a[a][20].y = .5 * (this.a[a][0].y + this.a[a][1].y);
+        if (0 >= this.j[a]) {
+            this.b[a]++;
+            for (b = 0; 3 > b; b++) {
+                this.a[a][b].x += L(-.5, .5);
+                this.a[a][b].y -= L(2, 3);
+            }
+            tf(this, a, 0);
+        }
+    } else {
+        for (b = 0; 3 > b; b++) {
+            V(this.a[a][b], this.c[a][b], .05, .99);
+        }
+        for (b = this.g[a] = 0; 3 > b; b++) {
+            Wf(this, a, b, .5);
+        }
+        if (150 < this.h[a]++) {
+            this.sub(a--);
+        }
     }
     return a;
 };
@@ -7983,119 +7925,7 @@ aa.fff = Vf.prototype.U;
 Vf.prototype.U = function (a) {
     var b;
     b = D[this.f[a]][Qf];
-    if (this.b[a]) {
-        if (1 == this.b[a] || 2 == this.b[a]) {
-            V(this.a[a][0], this.c[a][0], -.05, .99);
-            V(this.a[a][1], this.c[a][1], -.1, .99);
-            V(this.a[a][2], this.c[a][2], .8, .99);
-            V(this.a[a][3], this.c[a][3], -.1, .99);
-            V(this.a[a][4], this.c[a][4], .8, .99);
-            V(this.a[a][5], this.c[a][5], -.1, .99);
-            V(this.a[a][6], this.c[a][6], .8, .99);
-            V(this.a[a][7], this.c[a][7], -.1, .99);
-            V(this.a[a][8], this.c[a][8], .8, .99);
-            if (50 > C(100) && 0 < (this.g[a] & 3)) {
-                var c = Df(this.a[a][0].x - 500, this.a[a][0].y - 25, this.a[a][0].x + 500, this.a[a][0].y + 25, 0);
-                if (-1 != c) {
-                    if (u.a[c][2].x < this.a[a][0].x) {
-                        this.b[a] = 1;
-                    } else {
-                        this.b[a] = 2;
-                    }
-                } else if (10 > C(100)) {
-                    this.b[a] = pe(1, 2);
-                }
-                if (1 == this.b[a]) {
-                    if (this.a[a][2].x < this.a[a][6].x) {
-                        this.a[a][6].x += C(-1);
-                        this.a[a][6].y += L(-1, -1);
-                    } else {
-                        this.a[a][2].x += C(-1);
-                        this.a[a][2].y += L(-1, -1);
-                    }
-                    if (this.a[a][4].x < this.a[a][8].x) {
-                        this.a[a][8].x += C(-1);
-                        this.a[a][8].y += L(-1, -1);
-                    } else {
-                        this.a[a][4].x += C(-1);
-                        this.a[a][4].y += L(-1, -1);
-                    }
-                    if (1 > C(100)) {
-                        --this.a[a][0].x;
-                        this.a[a][0].y -= 3;
-                    }
-                } else {
-                    if (this.a[a][2].x < this.a[a][6].x) {
-                        this.a[a][2].x += C(1);
-                        this.a[a][2].y += L(-1, -1);
-                    } else {
-                        this.a[a][6].x += C(1);
-                        this.a[a][6].y += L(-1, -1);
-                    }
-                    if (this.a[a][4].x < this.a[a][8].x) {
-                        this.a[a][4].x += C(1);
-                        this.a[a][4].y += L(-1, -1);
-                    } else {
-                        this.a[a][8].x += C(1);
-                        this.a[a][8].y += L(-1, -1);
-                    }
-                    if (1 > C(100)) {
-                        this.a[a][0].x += 1;
-                        this.a[a][0].y -= 3;
-                    }
-                }
-            }
-            c = .3;
-            b = 2.2 * b;
-            W(this.a[a][0], this.a[a][5], 3 * b, .1 * c, c);
-            W(this.a[a][0], this.a[a][7], 3 * b, .1 * c, c);
-            W(this.a[a][0], this.a[a][6], 3 * b, .1 * c, c);
-            W(this.a[a][5], this.a[a][6], 2 * b, .2 * c, .2 * c);
-            W(this.a[a][0], this.a[a][8], 3 * b, .1 * c, c);
-            W(this.a[a][7], this.a[a][8], 2 * b, .2 * c, .2 * c);
-            W(this.a[a][0], this.a[a][1], 4 * b, .1 * c, c);
-            W(this.a[a][0], this.a[a][3], 4 * b, .1 * c, c);
-            W(this.a[a][0], this.a[a][2], 4 * b, .1 * c, c);
-            W(this.a[a][1], this.a[a][2], 3 * b, .2 * c, .2 * c);
-            W(this.a[a][0], this.a[a][4], 4 * b, .1 * c, c);
-            W(this.a[a][3], this.a[a][4], 3 * b, .2 * c, .2 * c);
-            W(this.a[a][2], this.a[a][4], 8 * b, .1 * c, .1 * c);
-            W(this.a[a][5], this.a[a][7], 7 * b, .1 * c, .1 * c);
-            Xf(this, a, 0);
-            if (0 != D[this.f[a]][qd]) {
-                Xf(this, a, 1);
-            }
-            for (b = this.g[a] = 0; 9 > b; b++) {
-                Wf(this, a, b, .5);
-            }
-            this.a[a][20].set(this.a[a][0]);
-            if (0 >= this.j[a]) {
-                this.b[a] = 3;
-                this.h[a] = 0;
-                for (b = 1; 9 > b; b++) {
-                    this.a[a][b].x += L(-1, 1);
-                    this.a[a][b].y -= L(1, 2);
-                }
-                tf(this, a, 0);
-            }
-        } else {
-            for (b = 0; 9 > b; b++) {
-                V(this.a[a][b], this.c[a][b], .05, .99);
-            }
-            c = .5;
-            b = 1.2 * (150 - this.h[a]) / 150;
-            W(this.a[a][1], this.a[a][2], 4 * b, c, c);
-            W(this.a[a][3], this.a[a][4], 4 * b, c, c);
-            W(this.a[a][5], this.a[a][6], 3 * b, c, c);
-            W(this.a[a][7], this.a[a][8], 3 * b, c, c);
-            for (b = this.g[a] = 0; 9 > b; b++) {
-                Wf(this, a, b, .5);
-            }
-            if (150 < this.h[a]++) {
-                this.sub(a--);
-            }
-        }
-    } else {
+    if (!this.b[a]) {
         this.a[a][0].x += 4;
         this.a[a][0].y += 0;
         this.a[a][1].x += 0;
@@ -8118,6 +7948,116 @@ Vf.prototype.U = function (a) {
             this.c[a][b].set(this.a[a][b]);
         }
         this.b[a] = 1;
+    } else if (1 == this.b[a] || 2 == this.b[a]) {
+        V(this.a[a][0], this.c[a][0], -.05, .99);
+        V(this.a[a][1], this.c[a][1], -.1, .99);
+        V(this.a[a][2], this.c[a][2], .8, .99);
+        V(this.a[a][3], this.c[a][3], -.1, .99);
+        V(this.a[a][4], this.c[a][4], .8, .99);
+        V(this.a[a][5], this.c[a][5], -.1, .99);
+        V(this.a[a][6], this.c[a][6], .8, .99);
+        V(this.a[a][7], this.c[a][7], -.1, .99);
+        V(this.a[a][8], this.c[a][8], .8, .99);
+        if (50 > C(100) && 0 < (this.g[a] & 3)) {
+            var c = Df(this.a[a][0].x - 500, this.a[a][0].y - 25, this.a[a][0].x + 500, this.a[a][0].y + 25, 0);
+            if (-1 != c) {
+                if (u.a[c][2].x < this.a[a][0].x) {
+                    this.b[a] = 1;
+                } else {
+                    this.b[a] = 2;
+                }
+            } else if (10 > C(100)) {
+                this.b[a] = pe(1, 2);
+            }
+            if (1 == this.b[a]) {
+                if (this.a[a][2].x < this.a[a][6].x) {
+                    this.a[a][6].x += C(-1);
+                    this.a[a][6].y += L(-1, -1);
+                } else {
+                    this.a[a][2].x += C(-1);
+                    this.a[a][2].y += L(-1, -1);
+                }
+                if (this.a[a][4].x < this.a[a][8].x) {
+                    this.a[a][8].x += C(-1);
+                    this.a[a][8].y += L(-1, -1);
+                } else {
+                    this.a[a][4].x += C(-1);
+                    this.a[a][4].y += L(-1, -1);
+                }
+                if (1 > C(100)) {
+                    --this.a[a][0].x;
+                    this.a[a][0].y -= 3;
+                }
+            } else {
+                if (this.a[a][2].x < this.a[a][6].x) {
+                    this.a[a][2].x += C(1);
+                    this.a[a][2].y += L(-1, -1);
+                } else {
+                    this.a[a][6].x += C(1);
+                    this.a[a][6].y += L(-1, -1);
+                }
+                if (this.a[a][4].x < this.a[a][8].x) {
+                    this.a[a][4].x += C(1);
+                    this.a[a][4].y += L(-1, -1);
+                } else {
+                    this.a[a][8].x += C(1);
+                    this.a[a][8].y += L(-1, -1);
+                }
+                if (1 > C(100)) {
+                    this.a[a][0].x += 1;
+                    this.a[a][0].y -= 3;
+                }
+            }
+        }
+        c = .3;
+        b = 2.2 * b;
+        W(this.a[a][0], this.a[a][5], 3 * b, .1 * c, c);
+        W(this.a[a][0], this.a[a][7], 3 * b, .1 * c, c);
+        W(this.a[a][0], this.a[a][6], 3 * b, .1 * c, c);
+        W(this.a[a][5], this.a[a][6], 2 * b, .2 * c, .2 * c);
+        W(this.a[a][0], this.a[a][8], 3 * b, .1 * c, c);
+        W(this.a[a][7], this.a[a][8], 2 * b, .2 * c, .2 * c);
+        W(this.a[a][0], this.a[a][1], 4 * b, .1 * c, c);
+        W(this.a[a][0], this.a[a][3], 4 * b, .1 * c, c);
+        W(this.a[a][0], this.a[a][2], 4 * b, .1 * c, c);
+        W(this.a[a][1], this.a[a][2], 3 * b, .2 * c, .2 * c);
+        W(this.a[a][0], this.a[a][4], 4 * b, .1 * c, c);
+        W(this.a[a][3], this.a[a][4], 3 * b, .2 * c, .2 * c);
+        W(this.a[a][2], this.a[a][4], 8 * b, .1 * c, .1 * c);
+        W(this.a[a][5], this.a[a][7], 7 * b, .1 * c, .1 * c);
+        Xf(this, a, 0);
+        if (0 != D[this.f[a]][qd]) {
+            Xf(this, a, 1);
+        }
+        for (b = this.g[a] = 0; 9 > b; b++) {
+            Wf(this, a, b, .5);
+        }
+        this.a[a][20].set(this.a[a][0]);
+        if (0 >= this.j[a]) {
+            this.b[a] = 3;
+            this.h[a] = 0;
+            for (b = 1; 9 > b; b++) {
+                this.a[a][b].x += L(-1, 1);
+                this.a[a][b].y -= L(1, 2);
+            }
+            tf(this, a, 0);
+        }
+    } else {
+        for (b = 0; 9 > b; b++) {
+            V(this.a[a][b], this.c[a][b], .05, .99);
+        }
+        c = .5;
+        b = 1.2 * (150 - this.h[a]) / 150;
+        W(this.a[a][1], this.a[a][2], 4 * b, c, c);
+        W(this.a[a][3], this.a[a][4], 4 * b, c, c);
+        W(this.a[a][5], this.a[a][6], 3 * b, c, c);
+        W(this.a[a][7], this.a[a][8], 3 * b, c, c);
+        for (b = this.g[a] = 0; 9 > b; b++) {
+            Wf(this, a, b, .5);
+        }
+        if (150 < this.h[a]++) {
+            this.sub(a--);
+        }
     }
     return a;
 };
@@ -8125,52 +8065,7 @@ aa.fff = Vf.prototype.V;
 Vf.prototype.V = function (a) {
     var b;
     var c = D[this.f[a]][Qf];
-    if (this.b[a]) {
-        if (1 == this.b[a]) {
-            for (b = 0; 3 > b; b++) {
-                V(this.a[a][b], this.c[a][b], -.04, .99);
-            }
-            V(this.a[a][b], this.c[a][b], 1, .99);
-            W(this.a[a][0], this.a[a][3], 20 * c, .2, 0);
-            W(this.a[a][1], this.a[a][3], 15 * c, .2, 0);
-            W(this.a[a][2], this.a[a][3], 20 * c, .2, 0);
-            this.a[a][0].x = this.a[a][3].x;
-            this.a[a][1].x = this.a[a][3].x - 8 * c;
-            this.a[a][2].x = this.a[a][3].x + 8 * c;
-            if (0 < this.s[a]) {
-                this.s[a]--;
-            } else if (0 < this.u[a]) {
-                this.a[a][0].y += L(0, 1);
-                this.a[a][1].y += L(0, 1);
-                this.a[a][2].y += L(0, 1);
-                Xf(this, a, 0);
-            }
-            this.u[a] = 0;
-            for (b = this.g[a] = 0; 4 > b; b++) {
-                Wf(this, a, b, .5);
-            }
-            this.a[a][20].x = this.a[a][0].x;
-            this.a[a][20].y = .5 * (this.a[a][0].y + this.a[a][1].y);
-            if (0 >= this.j[a]) {
-                this.b[a]++;
-                for (b = 0; 4 > b; b++) {
-                    this.a[a][b].x += L(-.5, .5);
-                    this.a[a][b].y -= L(2, 3);
-                }
-                tf(this, a, 0);
-            }
-        } else {
-            for (b = 0; 4 > b; b++) {
-                V(this.a[a][b], this.c[a][b], .05, .99);
-            }
-            for (b = this.g[a] = 0; 4 > b; b++) {
-                Wf(this, a, b, .5);
-            }
-            if (150 < this.h[a]++) {
-                this.sub(a--);
-            }
-        }
-    } else {
+    if (!this.b[a]) {
         this.a[a][0].x += 1;
         this.a[a][0].y += 0;
         this.a[a][1].x += 0;
@@ -8180,6 +8075,49 @@ Vf.prototype.V = function (a) {
         this.a[a][3].x += 1;
         this.a[a][3].y += 2;
         this.b[a]++;
+    } else if (1 == this.b[a]) {
+        for (b = 0; 3 > b; b++) {
+            V(this.a[a][b], this.c[a][b], -.04, .99);
+        }
+        V(this.a[a][b], this.c[a][b], 1, .99);
+        W(this.a[a][0], this.a[a][3], 20 * c, .2, 0);
+        W(this.a[a][1], this.a[a][3], 15 * c, .2, 0);
+        W(this.a[a][2], this.a[a][3], 20 * c, .2, 0);
+        this.a[a][0].x = this.a[a][3].x;
+        this.a[a][1].x = this.a[a][3].x - 8 * c;
+        this.a[a][2].x = this.a[a][3].x + 8 * c;
+        if (0 < this.s[a]) {
+            this.s[a]--;
+        } else if (0 < this.u[a]) {
+            this.a[a][0].y += L(0, 1);
+            this.a[a][1].y += L(0, 1);
+            this.a[a][2].y += L(0, 1);
+            Xf(this, a, 0);
+        }
+        this.u[a] = 0;
+        for (b = this.g[a] = 0; 4 > b; b++) {
+            Wf(this, a, b, .5);
+        }
+        this.a[a][20].x = this.a[a][0].x;
+        this.a[a][20].y = .5 * (this.a[a][0].y + this.a[a][1].y);
+        if (0 >= this.j[a]) {
+            this.b[a]++;
+            for (b = 0; 4 > b; b++) {
+                this.a[a][b].x += L(-.5, .5);
+                this.a[a][b].y -= L(2, 3);
+            }
+            tf(this, a, 0);
+        }
+    } else {
+        for (b = 0; 4 > b; b++) {
+            V(this.a[a][b], this.c[a][b], .05, .99);
+        }
+        for (b = this.g[a] = 0; 4 > b; b++) {
+            Wf(this, a, b, .5);
+        }
+        if (150 < this.h[a]++) {
+            this.sub(a--);
+        }
     }
     return a;
 };
@@ -8188,72 +8126,7 @@ Vf.prototype.W = function (a) {
     var b;
     var c = new ge();
     b = D[this.f[a]][Qf];
-    if (this.b[a]) {
-        if (1 == this.b[a] || 2 == this.b[a]) {
-            V(this.a[a][0], this.c[a][0], .1, .99);
-            V(this.a[a][1], this.c[a][1], .1, .99);
-            V(this.a[a][2], this.c[a][2], -.1, .99);
-            V(this.a[a][3], this.c[a][3], -.1, .99);
-            Af(c, 0, 0);
-            var d = Df(this.a[a][0].x - 150, this.a[a][0].y - 250, this.a[a][0].x + 150, this.a[a][0].y + 250, 0);
-            if (-1 != d) {
-                c.x = u.a[d][2].x - this.a[a][0].x;
-                c.y = u.a[d][2].y - 10 - this.a[a][0].y;
-                if (-10 > c.x) {
-                    c.x = -.02;
-                } else if (10 < c.x) {
-                    c.x = .02;
-                } else {
-                    c.x = L(-.02, .02);
-                }
-                d = D[this.f[a]][32] / 2;
-                if (c.y < -d) {
-                    c.y = -.02;
-                } else if (c.y > d) {
-                    c.y = .02;
-                } else {
-                    c.y = L(-.1, .1);
-                }
-            }
-            this.a[a][0].add(c);
-            this.a[a][2].x -= C(.8);
-            this.a[a][3].x += C(.8);
-            c = .3;
-            W(this.a[a][1], this.a[a][2], 8 * b, c, c);
-            W(this.a[a][1], this.a[a][3], 8 * b, c, c);
-            W(this.a[a][2], this.a[a][3], 16 * b, c, c);
-            W(this.a[a][0], this.a[a][2], 12 * b, c, c);
-            W(this.a[a][0], this.a[a][3], 12 * b, c, c);
-            Xf(this, a, 0);
-            for (b = this.g[a] = 0; 4 > b; b++) {
-                Wf(this, a, b, 1);
-            }
-            this.a[a][20].set(this.a[a][0]);
-            if (0 >= this.j[a]) {
-                this.b[a] = 3;
-                for (b = 0; 4 > b; b++) {
-                    this.a[a][b].x += L(-1, 1);
-                    this.a[a][b].y -= L(1, 2);
-                }
-                tf(this, a, 0);
-            }
-        } else {
-            for (b = 0; 4 > b; b++) {
-                V(this.a[a][b], this.c[a][b], .05, .99);
-            }
-            c = .3;
-            b = (150 - this.h[a]) / 150;
-            W(this.a[a][1], this.a[a][2], 8 * b, c, c);
-            W(this.a[a][1], this.a[a][3], 8 * b, c, c);
-            W(this.a[a][2], this.a[a][3], 16 * b, c, c);
-            for (b = this.g[a] = 0; 4 > b; b++) {
-                Wf(this, a, b, .5);
-            }
-            if (150 < this.h[a]++) {
-                this.sub(a--);
-            }
-        }
-    } else {
+    if (!this.b[a]) {
         this.a[a][0].x += 2;
         this.a[a][0].y += 4;
         this.a[a][1].x += 2;
@@ -8266,6 +8139,69 @@ Vf.prototype.W = function (a) {
             this.c[a][b].set(this.a[a][b]);
         }
         this.b[a] = 1;
+    } else if (1 == this.b[a] || 2 == this.b[a]) {
+        V(this.a[a][0], this.c[a][0], .1, .99);
+        V(this.a[a][1], this.c[a][1], .1, .99);
+        V(this.a[a][2], this.c[a][2], -.1, .99);
+        V(this.a[a][3], this.c[a][3], -.1, .99);
+        Af(c, 0, 0);
+        var d = Df(this.a[a][0].x - 150, this.a[a][0].y - 250, this.a[a][0].x + 150, this.a[a][0].y + 250, 0);
+        if (-1 != d) {
+            c.x = u.a[d][2].x - this.a[a][0].x;
+            c.y = u.a[d][2].y - 10 - this.a[a][0].y;
+            if (-10 > c.x) {
+                c.x = -.02;
+            } else if (10 < c.x) {
+                c.x = .02;
+            } else {
+                c.x = L(-.02, .02);
+            }
+            d = D[this.f[a]][32] / 2;
+            if (c.y < -d) {
+                c.y = -.02;
+            } else if (c.y > d) {
+                c.y = .02;
+            } else {
+                c.y = L(-.1, .1);
+            }
+        }
+        this.a[a][0].add(c);
+        this.a[a][2].x -= C(.8);
+        this.a[a][3].x += C(.8);
+        c = .3;
+        W(this.a[a][1], this.a[a][2], 8 * b, c, c);
+        W(this.a[a][1], this.a[a][3], 8 * b, c, c);
+        W(this.a[a][2], this.a[a][3], 16 * b, c, c);
+        W(this.a[a][0], this.a[a][2], 12 * b, c, c);
+        W(this.a[a][0], this.a[a][3], 12 * b, c, c);
+        Xf(this, a, 0);
+        for (b = this.g[a] = 0; 4 > b; b++) {
+            Wf(this, a, b, 1);
+        }
+        this.a[a][20].set(this.a[a][0]);
+        if (0 >= this.j[a]) {
+            this.b[a] = 3;
+            for (b = 0; 4 > b; b++) {
+                this.a[a][b].x += L(-1, 1);
+                this.a[a][b].y -= L(1, 2);
+            }
+            tf(this, a, 0);
+        }
+    } else {
+        for (b = 0; 4 > b; b++) {
+            V(this.a[a][b], this.c[a][b], .05, .99);
+        }
+        c = .3;
+        b = (150 - this.h[a]) / 150;
+        W(this.a[a][1], this.a[a][2], 8 * b, c, c);
+        W(this.a[a][1], this.a[a][3], 8 * b, c, c);
+        W(this.a[a][2], this.a[a][3], 16 * b, c, c);
+        for (b = this.g[a] = 0; 4 > b; b++) {
+            Wf(this, a, b, .5);
+        }
+        if (150 < this.h[a]++) {
+            this.sub(a--);
+        }
     }
     return a;
 };
@@ -8273,66 +8209,7 @@ aa.fff = Vf.prototype.X;
 Vf.prototype.X = function (a) {
     var b;
     b = D[this.f[a]][Qf];
-    if (this.b[a]) {
-        if (1 == this.b[a]) {
-            V(this.a[a][0], this.c[a][0], -.15, .99);
-            V(this.a[a][1], this.c[a][1], .1, .99);
-            V(this.a[a][2], this.c[a][2], .1, .99);
-            var c = Df(this.a[a][0].x - 200, this.a[a][0].y - 50, this.a[a][0].x + 200, this.a[a][0].y + 50, 0);
-            if (0 < (this.g[a] & 2) && 5 > C(100)) {
-                var d = 0;
-                if (-1 != c) {
-                    if (u.a[c][2].x < this.a[a][0].x) {
-                        d = -1;
-                    } else {
-                        d = 1;
-                    }
-                } else {
-                    d = pe(-1, 1);
-                }
-                this.a[a][0].x += L(.4, .6) * d;
-                this.a[a][0].y += L(-1.5, -2);
-            }
-            c = .01;
-            W(this.a[a][0], this.a[a][1], 5 * b, c, c);
-            W(this.a[a][0], this.a[a][2], 5 * b, c, c);
-            W(this.a[a][1], this.a[a][2], 6 * b, c, c);
-            if (1 < b && 0 < this.u[a] && 10 > C(100)) {
-                this.add(y(this.a[a][0].x / 8), y(this.a[a][0].y / 8), this.f[a] - 1);
-            }
-            this.u[a] = 0;
-            Xf(this, a, 0);
-            for (b = this.g[a] = 0; 3 > b; b++) {
-                Wf(this, a, b, .9);
-            }
-            this.a[a][20].set(this.a[a][0]);
-            if (0 >= this.j[a]) {
-                this.b[a]++;
-                this.a[a][3].set(this.a[a][0]);
-                this.c[a][3].set(this.a[a][0]);
-                for (b = 0; 4 > b; b++) {
-                    this.a[a][b].x += L(-.5, .5);
-                    this.a[a][b].y -= L(2, 3);
-                }
-                tf(this, a, 0);
-            }
-        } else {
-            for (b = 0; 4 > b; b++) {
-                V(this.a[a][b], this.c[a][b], .05, .99);
-            }
-            c = .01;
-            b = (150 - this.h[a]) / 150;
-            W(this.a[a][0], this.a[a][1], 5 * b, c, c);
-            W(this.a[a][0], this.a[a][2], 5 * b, c, c);
-            W(this.a[a][1], this.a[a][2], 6 * b, c, c);
-            for (b = this.g[a] = 0; 4 > b; b++) {
-                Wf(this, a, b, .5);
-            }
-            if (150 < this.h[a]++) {
-                this.sub(a--);
-            }
-        }
-    } else {
+    if (!this.b[a]) {
         this.a[a][0].x += 1;
         this.a[a][0].y += 0;
         this.a[a][1].x += 0;
@@ -8343,6 +8220,61 @@ Vf.prototype.X = function (a) {
             this.c[a][b].set(this.a[a][b]);
         }
         this.b[a]++;
+    } else if (1 == this.b[a]) {
+        V(this.a[a][0], this.c[a][0], -.15, .99);
+        V(this.a[a][1], this.c[a][1], .1, .99);
+        V(this.a[a][2], this.c[a][2], .1, .99);
+        var c = Df(this.a[a][0].x - 200, this.a[a][0].y - 50, this.a[a][0].x + 200, this.a[a][0].y + 50, 0);
+        if (0 < (this.g[a] & 2) && 5 > C(100)) {
+            var d = 0;
+            if (!(-1 != c)) {
+                d = pe(-1, 1);
+            } else if (u.a[c][2].x < this.a[a][0].x) {
+                d = -1;
+            } else {
+                d = 1;
+            }
+            this.a[a][0].x += L(.4, .6) * d;
+            this.a[a][0].y += L(-1.5, -2);
+        }
+        c = .01;
+        W(this.a[a][0], this.a[a][1], 5 * b, c, c);
+        W(this.a[a][0], this.a[a][2], 5 * b, c, c);
+        W(this.a[a][1], this.a[a][2], 6 * b, c, c);
+        if (1 < b && 0 < this.u[a] && 10 > C(100)) {
+            this.add(y(this.a[a][0].x / 8), y(this.a[a][0].y / 8), this.f[a] - 1);
+        }
+        this.u[a] = 0;
+        Xf(this, a, 0);
+        for (b = this.g[a] = 0; 3 > b; b++) {
+            Wf(this, a, b, .9);
+        }
+        this.a[a][20].set(this.a[a][0]);
+        if (0 >= this.j[a]) {
+            this.b[a]++;
+            this.a[a][3].set(this.a[a][0]);
+            this.c[a][3].set(this.a[a][0]);
+            for (b = 0; 4 > b; b++) {
+                this.a[a][b].x += L(-.5, .5);
+                this.a[a][b].y -= L(2, 3);
+            }
+            tf(this, a, 0);
+        }
+    } else {
+        for (b = 0; 4 > b; b++) {
+            V(this.a[a][b], this.c[a][b], .05, .99);
+        }
+        c = .01;
+        b = (150 - this.h[a]) / 150;
+        W(this.a[a][0], this.a[a][1], 5 * b, c, c);
+        W(this.a[a][0], this.a[a][2], 5 * b, c, c);
+        W(this.a[a][1], this.a[a][2], 6 * b, c, c);
+        for (b = this.g[a] = 0; 4 > b; b++) {
+            Wf(this, a, b, .5);
+        }
+        if (150 < this.h[a]++) {
+            this.sub(a--);
+        }
     }
     return a;
 };
@@ -8351,94 +8283,92 @@ Vf.prototype.Y = function (a) {
     var b;
     var c = new ge();
     var d = D[this.f[a]][Qf];
-    if (this.b[a]) {
-        if (1 == this.b[a]) {
-            for (b = 0; 10 > b; b++) {
-                V(this.a[a][b], this.c[a][b], 0, .98);
-            }
-            if (0 >= this.h[a] && 5 > C(100)) {
-                b = y(C(3));
-                if (0 == b) {
-                    c.x = (this.a[a][8].x + this.a[a][9].x) / 2 - this.a[a][7].x;
-                    c.y = (this.a[a][8].y + this.a[a][9].y) / 2 - this.a[a][7].y;
-                    ke(c);
-                    le(c, d);
-                    this.a[a][7].add(c);
-                } else if (1 == b) {
-                    c.x = (this.a[a][9].x + this.a[a][7].x) / 2 - this.a[a][8].x;
-                    c.y = (this.a[a][9].y + this.a[a][7].y) / 2 - this.a[a][8].y;
-                    ke(c);
-                    le(c, d);
-                    this.a[a][8].add(c);
-                } else if (2 == b) {
-                    c.x = (this.a[a][7].x + this.a[a][8].x) / 2 - this.a[a][9].x;
-                    c.y = (this.a[a][7].y + this.a[a][8].y) / 2 - this.a[a][9].y;
-                    ke(c);
-                    le(c, d);
-                    this.a[a][9].add(c);
-                }
-                this.h[a] = 25 * d;
-            }
-            Af(c, 0, 0);
-            b = Df(this.a[a][0].x - 200, this.a[a][0].y - 200, this.a[a][0].x + 200, this.a[a][0].y + 200, 0);
-            if (-1 != b) {
-                Bf(c, u.a[b][2], this.a[a][0]);
+    if (!this.b[a]) {
+        this.b[a]++;
+    } else if (1 == this.b[a]) {
+        for (b = 0; 10 > b; b++) {
+            V(this.a[a][b], this.c[a][b], 0, .98);
+        }
+        if (0 >= this.h[a] && 5 > C(100)) {
+            b = y(C(3));
+            if (0 == b) {
+                c.x = (this.a[a][8].x + this.a[a][9].x) / 2 - this.a[a][7].x;
+                c.y = (this.a[a][8].y + this.a[a][9].y) / 2 - this.a[a][7].y;
                 ke(c);
-                for (b = 4; 7 > b; b++) {
-                    this.a[a][b].x += .02 * c.x;
-                    this.a[a][b].y += .02 * c.y;
-                }
+                le(c, d);
+                this.a[a][7].add(c);
+            } else if (1 == b) {
+                c.x = (this.a[a][9].x + this.a[a][7].x) / 2 - this.a[a][8].x;
+                c.y = (this.a[a][9].y + this.a[a][7].y) / 2 - this.a[a][8].y;
+                ke(c);
+                le(c, d);
+                this.a[a][8].add(c);
+            } else if (2 == b) {
+                c.x = (this.a[a][7].x + this.a[a][8].x) / 2 - this.a[a][9].x;
+                c.y = (this.a[a][7].y + this.a[a][8].y) / 2 - this.a[a][9].y;
+                ke(c);
+                le(c, d);
+                this.a[a][9].add(c);
             }
-            c = .05;
-            for (b = 1; 4 > b; b++) {
-                W(this.a[a][0], this.a[a][b], 3 * d, c, c);
-            }
-            for (b = 1; 4 > b; b++) {
-                W(this.a[a][b], this.a[a][b + 3], 3 * d, c, c);
-            }
+            this.h[a] = 25 * d;
+        }
+        Af(c, 0, 0);
+        b = Df(this.a[a][0].x - 200, this.a[a][0].y - 200, this.a[a][0].x + 200, this.a[a][0].y + 200, 0);
+        if (-1 != b) {
+            Bf(c, u.a[b][2], this.a[a][0]);
+            ke(c);
             for (b = 4; 7 > b; b++) {
-                W(this.a[a][b], this.a[a][b + 3], 3 * d, c, .01);
-            }
-            if (5 > this.h[a]--) {
-                c = .01 / d;
-                W(this.a[a][7], this.a[a][8], 20 * d, c, c);
-                W(this.a[a][8], this.a[a][9], 20 * d, c, c);
-                W(this.a[a][9], this.a[a][7], 20 * d, c, c);
-            }
-            Xf(this, a, 0);
-            for (b = this.g[a] = 0; 10 > b; b++) {
-                Wf(this, a, b, .9);
-            }
-            this.a[a][20].set(this.a[a][0]);
-            if (0 >= this.j[a]) {
-                this.b[a]++;
-                for (b = this.h[a] = 0; 4 > b; b++) {
-                    this.a[a][b].x += L(-.5, .5);
-                    this.a[a][b].y -= L(2, 3);
-                }
-                tf(this, a, 0);
-            }
-        } else {
-            for (b = 0; 10 > b; b++) {
-                V(this.a[a][b], this.c[a][b], .05, .98);
-            }
-            var c = .05;
-            var e = (150 - this.h[a]) / 150;
-            for (b = 1; 4 > b; b++) {
-                W(this.a[a][b], this.a[a][b + 3], 3 * d * e, c, c);
-            }
-            for (b = 4; 7 > b; b++) {
-                W(this.a[a][b], this.a[a][b + 3], 3 * d * e, c, c);
-            }
-            for (b = this.g[a] = 0; 10 > b; b++) {
-                Wf(this, a, b, .5);
-            }
-            if (150 < this.h[a]++) {
-                this.sub(a--);
+                this.a[a][b].x += .02 * c.x;
+                this.a[a][b].y += .02 * c.y;
             }
         }
+        c = .05;
+        for (b = 1; 4 > b; b++) {
+            W(this.a[a][0], this.a[a][b], 3 * d, c, c);
+        }
+        for (b = 1; 4 > b; b++) {
+            W(this.a[a][b], this.a[a][b + 3], 3 * d, c, c);
+        }
+        for (b = 4; 7 > b; b++) {
+            W(this.a[a][b], this.a[a][b + 3], 3 * d, c, .01);
+        }
+        if (5 > this.h[a]--) {
+            c = .01 / d;
+            W(this.a[a][7], this.a[a][8], 20 * d, c, c);
+            W(this.a[a][8], this.a[a][9], 20 * d, c, c);
+            W(this.a[a][9], this.a[a][7], 20 * d, c, c);
+        }
+        Xf(this, a, 0);
+        for (b = this.g[a] = 0; 10 > b; b++) {
+            Wf(this, a, b, .9);
+        }
+        this.a[a][20].set(this.a[a][0]);
+        if (0 >= this.j[a]) {
+            this.b[a]++;
+            for (b = this.h[a] = 0; 4 > b; b++) {
+                this.a[a][b].x += L(-.5, .5);
+                this.a[a][b].y -= L(2, 3);
+            }
+            tf(this, a, 0);
+        }
     } else {
-        this.b[a]++;
+        for (b = 0; 10 > b; b++) {
+            V(this.a[a][b], this.c[a][b], .05, .98);
+        }
+        var c = .05;
+        var e = (150 - this.h[a]) / 150;
+        for (b = 1; 4 > b; b++) {
+            W(this.a[a][b], this.a[a][b + 3], 3 * d * e, c, c);
+        }
+        for (b = 4; 7 > b; b++) {
+            W(this.a[a][b], this.a[a][b + 3], 3 * d * e, c, c);
+        }
+        for (b = this.g[a] = 0; 10 > b; b++) {
+            Wf(this, a, b, .5);
+        }
+        if (150 < this.h[a]++) {
+            this.sub(a--);
+        }
     }
     return a;
 };
@@ -8446,57 +8376,55 @@ aa.fff = Vf.prototype.Z;
 Vf.prototype.Z = function (a) {
     var b;
     var c = D[this.f[a]][Qf];
-    if (this.b[a]) {
-        if (10 > this.b[a]) {
-            if (500 > this.h[a]) {
-                V(this.a[a][0], this.c[a][0], .1, .99);
-            } else {
-                V(this.a[a][0], this.c[a][0], -.1, .99);
-            }
-            for (b = 1; b < this.b[a] - 1; b++) {
-                V(this.a[a][b], this.c[a][b], 0, .99);
-            }
-            V(this.a[a][b], this.c[a][b], 1, .99);
-            if (10 > C(100)) {
-                b = y(C(4));
-                this.a[a][b].x += L(-.5, .5);
-            }
-            this.h[a]++;
-            if (600 < this.h[a]) {
-                this.h[a] = y(C(400));
-            }
-            W(this.a[a][0], this.a[a][1], 8 * c, .2, .2);
-            for (b = 1; b < this.b[a] - 2; b++) {
-                W(this.a[a][b], this.a[a][b + 1], 6 * c, .2, .2);
-            }
-            W(this.a[a][b], this.a[a][b + 1], 6 * c, .2, 0);
-            Xf(this, a, 0);
-            this.g[a] = 0;
-            for (b = this.b[a] - 1; b < this.b[a]; b++) {
-                Wf(this, a, b, .5);
-            }
-            this.a[a][20].set(this.a[a][0]);
-            if (0 >= this.j[a]) {
-                for (b = 0; b < this.b[a]; b++) {
-                    this.a[a][b].x += L(-.5, .5);
-                    this.a[a][b].y -= L(2, 3);
-                }
-                this.h[a] = 0;
-                tf(this, a, 0);
-                this.b[a] += 10;
-            }
-        } else {
-            for (b = 0; b < this.b[a] - 10; b++) {
-                V(this.a[a][b], this.c[a][b], .05, .99);
-            }
-            this.g[a] = 0;
-            if (150 < this.h[a]++) {
-                this.sub(a--);
-            }
-        }
-    } else {
+    if (!this.b[a]) {
         this.b[a] = y(L(4, 7));
         this.h[a] = y(C(400));
+    } else if (10 > this.b[a]) {
+        if (500 > this.h[a]) {
+            V(this.a[a][0], this.c[a][0], .1, .99);
+        } else {
+            V(this.a[a][0], this.c[a][0], -.1, .99);
+        }
+        for (b = 1; b < this.b[a] - 1; b++) {
+            V(this.a[a][b], this.c[a][b], 0, .99);
+        }
+        V(this.a[a][b], this.c[a][b], 1, .99);
+        if (10 > C(100)) {
+            b = y(C(4));
+            this.a[a][b].x += L(-.5, .5);
+        }
+        this.h[a]++;
+        if (600 < this.h[a]) {
+            this.h[a] = y(C(400));
+        }
+        W(this.a[a][0], this.a[a][1], 8 * c, .2, .2);
+        for (b = 1; b < this.b[a] - 2; b++) {
+            W(this.a[a][b], this.a[a][b + 1], 6 * c, .2, .2);
+        }
+        W(this.a[a][b], this.a[a][b + 1], 6 * c, .2, 0);
+        Xf(this, a, 0);
+        this.g[a] = 0;
+        for (b = this.b[a] - 1; b < this.b[a]; b++) {
+            Wf(this, a, b, .5);
+        }
+        this.a[a][20].set(this.a[a][0]);
+        if (0 >= this.j[a]) {
+            for (b = 0; b < this.b[a]; b++) {
+                this.a[a][b].x += L(-.5, .5);
+                this.a[a][b].y -= L(2, 3);
+            }
+            this.h[a] = 0;
+            tf(this, a, 0);
+            this.b[a] += 10;
+        }
+    } else {
+        for (b = 0; b < this.b[a] - 10; b++) {
+            V(this.a[a][b], this.c[a][b], .05, .99);
+        }
+        this.g[a] = 0;
+        if (150 < this.h[a]++) {
+            this.sub(a--);
+        }
     }
     return a;
 };
@@ -9889,24 +9817,20 @@ function $e() {
         } else {
             if (0 < a.J[b]) {
                 e = a.J[b];
-                if (1 != ba) {
-                    if (a.g[b]) {
-                        e = Df(a.b[b].x - e, a.b[b].y - e, a.b[b].x + e, a.b[b].y + e, 0);
-                    } else {
-                        e = Kf(a.b[b].x - e, a.b[b].y - e, a.b[b].x + e, a.b[b].y + e);
-                    }
-                } else {
+                if (!(1 != ba)) {
                     e = Df(a.b[b].x - e, a.b[b].y - e, a.b[b].x + e, a.b[b].y + e, 1 - a.g[b] << 2);
+                } else if (a.g[b]) {
+                    e = Df(a.b[b].x - e, a.b[b].y - e, a.b[b].x + e, a.b[b].y + e, 0);
+                } else {
+                    e = Kf(a.b[b].x - e, a.b[b].y - e, a.b[b].x + e, a.b[b].y + e);
                 }
                 if (-1 != e) {
-                    if (1 != ba) {
-                        if (a.g[b]) {
-                            Bf(d, u.a[e][0], a.b[b]);
-                        } else {
-                            Bf(d, Wd.a[e][0], a.b[b]);
-                        }
-                    } else {
+                    if (!(1 != ba)) {
                         Bf(d, u.a[e][0], a.b[b]);
+                    } else if (a.g[b]) {
+                        Bf(d, u.a[e][0], a.b[b]);
+                    } else {
+                        Bf(d, Wd.a[e][0], a.b[b]);
                     }
                     ke(d);
                     e = Cf(a.c[b]);
@@ -9930,17 +9854,13 @@ function $e() {
                 l = y(J(e.b[g].x, 0, 511) / 8);
                 A = y(J(m, 0, 255) / 8);
                 l = H.a[A][l];
-                if (0 <= l && 8 >= l && !e.K[g]) {
-                    if (e.s[g]) {
-                        if (2 == e.s[g]) {
-                            c.y *= -1;
-                            e.c[g].y *= -1;
-                        }
-                    } else {
-                        h = 1;
-                    }
-                } else {
+                if (!(0 <= l && 8 >= l && !e.K[g])) {
                     e.b[g].y = m;
+                } else if (!e.s[g]) {
+                    h = 1;
+                } else if (2 == e.s[g]) {
+                    c.y *= -1;
+                    e.c[g].y *= -1;
                 }
                 m = e.b[g].x + c.x;
                 l = y(J(m, 0, 511) / 8);
@@ -9969,25 +9889,21 @@ function $e() {
             }
             g = -1;
             if (1 == c) {
-                if (1 != ba) {
-                    if (a.g[b]) {
-                        g = Ef(a.B[b], a.i[b], a.j[b], a.w[b], a.A[b], a.b[b].x, a.b[b].y, a.F[b], a.G[b], 0);
-                    } else {
-                        g = Nf(a.B[b], a.i[b], a.j[b], a.w[b], a.A[b], a.b[b].x, a.b[b].y, a.F[b], a.G[b]);
-                    }
-                } else {
+                if (!(1 != ba)) {
                     g = Ef(a.B[b], a.i[b], a.j[b], a.w[b], a.A[b], a.b[b].x, a.b[b].y, a.F[b], a.G[b], 1 - a.g[b] << 2);
+                } else if (a.g[b]) {
+                    g = Ef(a.B[b], a.i[b], a.j[b], a.w[b], a.A[b], a.b[b].x, a.b[b].y, a.F[b], a.G[b], 0);
+                } else {
+                    g = Nf(a.B[b], a.i[b], a.j[b], a.w[b], a.A[b], a.b[b].x, a.b[b].y, a.F[b], a.G[b]);
                 }
             }
             if (-1 != g && a.H[b]) {
-                if (1 != ba) {
-                    if (a.g[b]) {
-                        Bf(d, u.a[g][0], a.b[b]);
-                    } else {
-                        Bf(d, Wd.a[g][0], a.b[b]);
-                    }
-                } else {
+                if (!(1 != ba)) {
                     Bf(d, u.a[g][0], a.b[b]);
+                } else if (a.g[b]) {
+                    Bf(d, u.a[g][0], a.b[b]);
+                } else {
+                    Bf(d, Wd.a[g][0], a.b[b]);
                 }
                 ke(d);
                 le(d, .1 * a.H[b]);
@@ -9996,14 +9912,12 @@ function $e() {
                 } else {
                     le(d, Of[D[Wd.f[g]][Pf]] / D[Wd.f[g]][Qf]);
                 }
-                if (1 != ba) {
-                    if (a.g[b]) {
-                        u.g[g][0].sub(d);
-                    } else {
-                        Wd.c[g][0].sub(d);
-                    }
-                } else {
+                if (!(1 != ba)) {
                     u.g[g][0].sub(d);
+                } else if (a.g[b]) {
+                    u.g[g][0].sub(d);
+                } else {
+                    Wd.c[g][0].sub(d);
                 }
                 a.H[b] = 0;
             }
@@ -10581,20 +10495,18 @@ function Yd() {
         for (b = 0; b < a.m; b++) {
             var h = a.a[c][b];
             if (-1 != h) {
-                if (9 == h) {
-                    if (82 == a.c) {
-                        if (-1 == a.a[c - 1][b]) {
-                            je($a, 8 * b, 8 * c, 8, 8, 0, 0, 8, 8);
-                        } else {
-                            yf(8 * b - 4, 8 * c, 16, 8, 5570560);
-                        }
-                    } else if (-1 == a.a[c - 1][b]) {
-                        je(Za, 8 * b, 8 * c, 8, 8, 0, 0, 8, 8);
-                    } else {
-                        yf(8 * b - 4, 8 * c, 16, 8, 21916);
-                    }
-                } else {
+                if (!(9 == h)) {
                     je(g, 8 * b, 8 * c, 8, 8, d[h], e[h], 8, 8);
+                } else if (82 == a.c) {
+                    if (-1 == a.a[c - 1][b]) {
+                        je($a, 8 * b, 8 * c, 8, 8, 0, 0, 8, 8);
+                    } else {
+                        yf(8 * b - 4, 8 * c, 16, 8, 5570560);
+                    }
+                } else if (-1 == a.a[c - 1][b]) {
+                    je(Za, 8 * b, 8 * c, 8, 8, 0, 0, 8, 8);
+                } else {
+                    yf(8 * b - 4, 8 * c, 16, 8, 21916);
                 }
             }
         }
@@ -10703,7 +10615,7 @@ var og = new Uint32Array(ng.data.buffer);
 var pg = aa.console;
 var hf = String.fromCharCode;
 var Ld = setTimeout;
-var qg = "dan-ball.jp";//location.hostname;
+var qg = location.hostname;
 aa.fff = rg;
 function rg(a, b, c) {
     try {
@@ -11290,48 +11202,46 @@ function me(a, b, c, d, e, g, h, q, m, l) {
                         X = ia * (B >> 16 & 255) >> 8;
                         T = za * (B >> 8 & 255) >> 8;
                         Y = ua * (B & 255) >> 8;
-                        if (Ce) {
-                            if (1 == Ce) {
-                                B = E[z] >> 16 & 255;
-                                X = ((X - B) * S >> 8) + B;
-                                B = E[z] >> 8 & 255;
-                                T = ((T - B) * S >> 8) + B;
-                                B = E[z] & 255;
-                                Y = ((Y - B) * S >> 8) + B;
-                                E[z] = X << 16 | T << 8 | Y;
-                            } else if (2 == Ce) {
-                                X = (X * S >> 8) + (E[z] >> 16 & 255);
-                                if (255 < X) {
-                                    X = 255;
-                                }
-                                T = (T * S >> 8) + (E[z] >> 8 & 255);
-                                if (255 < T) {
-                                    T = 255;
-                                }
-                                Y = (Y * S >> 8) + (E[z] & 255);
-                                if (255 < Y) {
-                                    Y = 255;
-                                }
-                                E[z] = X << 16 | T << 8 | Y;
-                            } else if (5 == Ce) {
-                                B = E[z] >> 16 & 255;
-                                X = B + (X * B * S >> 16);
-                                if (255 < X) {
-                                    X = 255;
-                                }
-                                B = E[z] >> 8 & 255;
-                                T = B + (T * B * S >> 16);
-                                if (255 < T) {
-                                    T = 255;
-                                }
-                                B = E[z] & 255;
-                                Y = B + (Y * B * S >> 16);
-                                if (255 < Y) {
-                                    Y = 255;
-                                }
-                                E[z] = X << 16 | T << 8 | Y;
+                        if (!Ce) {
+                            E[z] = X << 16 | T << 8 | Y;
+                        } else if (1 == Ce) {
+                            B = E[z] >> 16 & 255;
+                            X = ((X - B) * S >> 8) + B;
+                            B = E[z] >> 8 & 255;
+                            T = ((T - B) * S >> 8) + B;
+                            B = E[z] & 255;
+                            Y = ((Y - B) * S >> 8) + B;
+                            E[z] = X << 16 | T << 8 | Y;
+                        } else if (2 == Ce) {
+                            X = (X * S >> 8) + (E[z] >> 16 & 255);
+                            if (255 < X) {
+                                X = 255;
                             }
-                        } else {
+                            T = (T * S >> 8) + (E[z] >> 8 & 255);
+                            if (255 < T) {
+                                T = 255;
+                            }
+                            Y = (Y * S >> 8) + (E[z] & 255);
+                            if (255 < Y) {
+                                Y = 255;
+                            }
+                            E[z] = X << 16 | T << 8 | Y;
+                        } else if (5 == Ce) {
+                            B = E[z] >> 16 & 255;
+                            X = B + (X * B * S >> 16);
+                            if (255 < X) {
+                                X = 255;
+                            }
+                            B = E[z] >> 8 & 255;
+                            T = B + (T * B * S >> 16);
+                            if (255 < T) {
+                                T = 255;
+                            }
+                            B = E[z] & 255;
+                            Y = B + (Y * B * S >> 16);
+                            if (255 < Y) {
+                                Y = 255;
+                            }
                             E[z] = X << 16 | T << 8 | Y;
                         }
                     }
